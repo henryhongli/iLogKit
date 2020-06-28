@@ -90,9 +90,9 @@ extension ilogViewModel: ILoganProvider{}
     
 
 /// iLog 模型
-public class ilogViewModel {
-    var logLevel : UInt = 1
-    var label = ""
+open class ilogViewModel:NSObject {
+    public var logLevel : UInt = 1
+    public var label = ""
 }
 extension ILOGAN where Base ==  ilogViewModel{
     /// 写入日志
