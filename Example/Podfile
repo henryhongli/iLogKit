@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'iLogKit_Example' do
+  pod 'iLogKit', :path => '../'
+
+  target 'iLogKit_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end
