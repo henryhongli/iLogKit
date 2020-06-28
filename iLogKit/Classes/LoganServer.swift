@@ -10,9 +10,9 @@ import Foundation
 import Logan
 public class LoganServer {
     ///日志筛选等级, 默认不筛选,全量上传
-    static var logLevelLimit : UInt = 0
+    public static var logLevelLimit : UInt = 0
     ///日志上传地址
-    static var loganUploadUrl : String = "http://192.168.1.189:9999/logan/upload.json"
+    public static var loganUploadUrl : String = "http://192.168.1.189:9999/logan/upload.json"
     
     
     /// 启动日志服务
@@ -22,7 +22,7 @@ public class LoganServer {
     ///   - fileMax: 设置最大存储量, 达到阈值后不再存储, 默认100MB
     ///   - maxReversedDate: 日志有效期,默认1天
     ///   - ifNeedPrint: 是否需要在控制台实时输出日志内容, 默认false
-    static func startLogan(_ keyData: String = "0123456789012345", _ ivData:String = "0123456789012345", _ fileMax:uint_fast64_t = 100 * 1024 * 1024, _ maxReversedDate: Int32 = 1, _ ifNeedPrint: Bool = false){
+    public static func startLogan(_ keyData: String = "0123456789012345", _ ivData:String = "0123456789012345", _ fileMax:uint_fast64_t = 100 * 1024 * 1024, _ maxReversedDate: Int32 = 1, _ ifNeedPrint: Bool = false){
          let keyData = keyData.data(using: .utf8)
          let ivData = ivData.data(using: .utf8)
 
@@ -31,7 +31,7 @@ public class LoganServer {
         loganUseASL(ifNeedPrint)
         
     }
-    static func uploadAllLog(date: String, appId: String, unionId: String, device: String, complete:((_ state:Bool)->())?){
+    public static func uploadAllLog(date: String, appId: String, unionId: String, device: String, complete:((_ state:Bool)->())?){
         loganUpload(loganUploadUrl, date, appId, unionId, device) { (data, resp, error) in
             if error != nil{
                 print("upload error")

@@ -15,7 +15,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		C39CCEE524A83DC7008AEC90 /* LogVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CCEE424A83DC7008AEC90 /* LogVM.swift */; };
+		C39CCEE524A83DC7008AEC90 /* AppLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CCEE424A83DC7008AEC90 /* AppLogHandler.swift */; };
+		C39CCEE724A86C82008AEC90 /* EditLogRecivetype.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CCEE624A86C82008AEC90 /* EditLogRecivetype.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +48,8 @@
 		909977CC4F28F1271C7ED8D6 /* Pods_iLogKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLogKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9685B2B8C4657BA33466FE26 /* Pods-iLogKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLogKit_Example.release.xcconfig"; path = "Target Support Files/Pods-iLogKit_Example/Pods-iLogKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BF62C34FA40643283D36013B /* Pods-iLogKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLogKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-iLogKit_Tests/Pods-iLogKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		C39CCEE424A83DC7008AEC90 /* LogVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogVM.swift; sourceTree = "<group>"; };
+		C39CCEE424A83DC7008AEC90 /* AppLogHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogHandler.swift; sourceTree = "<group>"; };
+		C39CCEE624A86C82008AEC90 /* EditLogRecivetype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLogRecivetype.swift; sourceTree = "<group>"; };
 		CDD0F9728E70C4D87EED57F5 /* Pods-iLogKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLogKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-iLogKit_Example/Pods-iLogKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,7 +99,8 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				C39CCEE424A83DC7008AEC90 /* LogVM.swift */,
+				C39CCEE624A86C82008AEC90 /* EditLogRecivetype.swift */,
+				C39CCEE424A83DC7008AEC90 /* AppLogHandler.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -337,7 +340,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
-				C39CCEE524A83DC7008AEC90 /* LogVM.swift in Sources */,
+				C39CCEE524A83DC7008AEC90 /* AppLogHandler.swift in Sources */,
+				C39CCEE724A86C82008AEC90 /* EditLogRecivetype.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

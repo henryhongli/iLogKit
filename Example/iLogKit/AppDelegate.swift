@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import iLogKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,6 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        ///启动日志收集服务
+        LoganServer.startLogan("0123456789012345", "0123456789012345", 100 * 1024 * 1024, 1, true)
+        ///设置上传接口
+        LoganServer.loganUploadUrl = "http://192.168.1.189:9999/logan/upload.json"
+        ///设置收集限制, 全量上传
+        LoganServer.logLevelLimit = 0
+        
+        
+        
+        
         // Override point for customization after application launch.
         return true
     }
