@@ -1,0 +1,6 @@
+framework module iLogKit {
+  umbrella header "iLogKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
