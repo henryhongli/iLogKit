@@ -79,3 +79,4 @@ LoganServer.uploadAllLog{ (state) in
     print(state ? "日志上传成功":"日志上传失败")
 }
 ```
+## 五.更多内容可借鉴Exemple示例
