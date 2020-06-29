@@ -23,18 +23,18 @@ class EditLogRecivetype: UIViewController {
 
     @objc func selectedAllDroped(){
         /// 设置为error级别, 或者任意大于 4 的 整数
-        LoganServer.logLevelLimit = LocalLogType.error.rawValue
+        LoganServer.iLogLimit(LocalLogType.error.rawValue)
         UserDefaults.standard.set(iLogReciveType.allDroped.description, forKey: iLogReciveTypeKey)
         self.dismiss(animated: true, completion: nil)
     }
     @objc func selectedImportant(){
         /// 大于 lower 级别的日志将被收集
-        LoganServer.logLevelLimit = LocalLogType.lower.rawValue
+        LoganServer.iLogLimit(LocalLogType.lower.rawValue)
         UserDefaults.standard.set(iLogReciveType.importantInfo.description, forKey: iLogReciveTypeKey)
         self.dismiss(animated: true, completion: nil)
     }
     @objc func selectedAll(){
-        LoganServer.logLevelLimit = 0
+        LoganServer.iLogLimit(0)
         UserDefaults.standard.set(iLogReciveType.all.description, forKey: iLogReciveTypeKey)
         self.dismiss(animated: true, completion: nil)
     }

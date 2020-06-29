@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     /// 上传日志
     @IBAction func uploadAllLog(_ sender: Any) {
         /// 默认 日志只收集当天的, 如果设置一周或者其他时间, 此处 date 字段需做其他处理
-        LoganServer.uploadAllLog(date: date, appId: appId, unionId: unionId, device: device) { (state) in
+        LoganServer.uploadAllLog{ (state) in
             self.showToastLabel(state ? "日志上传成功":"日志上传失败")
         }
     }

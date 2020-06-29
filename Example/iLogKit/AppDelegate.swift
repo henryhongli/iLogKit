@@ -16,11 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         ///启动日志收集服务
-        LoganServer.startLogan("0123456789012345", "0123456789012345", 100 * 1024 * 1024, 1, true)
-        ///设置上传接口
-        LoganServer.loganUploadUrl = "http://192.168.1.189:9999/logan/upload.json"
+        
+        
+        let dic = ["keyData":"0123456789012345",
+                   "ivData":"0123456789012345",
+                   "uploadUrl":"http://192.168.1.189:9999/logan/upload.json",
+                    "print":"1"]
+        LoganServer.startLogan(dic)
         ///设置收集限制, 全量上传
-        LoganServer.logLevelLimit = 0
+        LoganServer.iLogLimit(0)
         
         
         

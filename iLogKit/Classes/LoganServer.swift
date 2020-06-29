@@ -8,46 +8,78 @@
 
 import Foundation
 import Logan
+
 public class LoganServer {
-    ///日志筛选等级, 默认不筛选,全量上传
-    public static var logLevelLimit : UInt = 0
-    ///日志上传地址
-    public static var loganUploadUrl : String = "http://192.168.1.189:9999/logan/upload.json"
     
+    ///日志筛选等级, 默认不筛选,全量上传
+    fileprivate static var logLevelLimit : UInt = 0
+    ///日志上传地址
+    private static var loganUploadUrl : String = "http://192.168.1.189:9999/logan/upload.json"
     
     /// 启动日志服务
     /// - Parameters:
     ///   - keyData: key
     ///   - ivData: iv
-    ///   - fileMax: 设置最大存储量, 达到阈值后不再存储, 默认100MB
-    ///   - maxReversedDate: 日志有效期,默认1天
     ///   - ifNeedPrint: 是否需要在控制台实时输出日志内容, 默认false
-    public static func startLogan(_ keyData: String = "0123456789012345", _ ivData:String = "0123456789012345", _ fileMax:uint_fast64_t = 100 * 1024 * 1024, _ maxReversedDate: Int32 = 1, _ ifNeedPrint: Bool = false){
-         let keyData = keyData.data(using: .utf8)
-         let ivData = ivData.data(using: .utf8)
+    public static func startLogan(_ data: [String:String]){
+        let keyData = data["keyData"]!.data(using: .utf8)
+        let ivData = data["ivData"]!.data(using: .utf8)
 
+        self.loganUploadUrl = data["uploadUrl"]!
+        ///最大存储量
+        let fileMax: uint_fast64_t = 100 * 1024 * 1024
+        //日志有效期,1天
+        let maxReversedDate: Int32 = 1
         loganInit(keyData!, ivData!, fileMax)
         loganSetMaxReversedDate(maxReversedDate)
-        loganUseASL(ifNeedPrint)
+        if let ifNeedPrint = data["print"], ifNeedPrint == "0" {
+            loganUseASL(false)
+        }else{
+            loganUseASL(true)
+        }
         
     }
-    public static func uploadAllLog(date: String, appId: String, unionId: String, device: String, complete:((_ state:Bool)->())?){
-        loganUpload(loganUploadUrl, date, appId, unionId, device) { (data, resp, error) in
-            if error != nil{
-                print("upload error")
-                print(error ?? "unknow error of upload log")
-                complete?(false)
-            }else{
-                ///上传成功
-                if let res = resp {
-                    print("upload succeed")
-                    print(res)
+
+    public static func uploadAllLog(complete:((_ state:Bool)->())?){
+        
+        if let info = Bundle.main.infoDictionary {
+            let appId : String = info["CFBundleDisplayName"] as! String // 获取App的名称
+            let sysName = UIDevice.current.systemName //获取系统名称 例如：iPhone OS
+            let sysVersion = UIDevice.current.systemVersion //获取系统版本 例如：9.2
+            let device = sysName + sysVersion
+            let deviceUUID = UIDevice.current.identifierForVendor?.uuid  //获取设备唯一标识符 例如：FBF2306E-A0D8-4F4B-BDED-9333B627D3E6
+            let unionIdStr = deviceUUID.debugDescription
+            let now = Date()
+            let df = DateFormatter()
+            df.dateFormat = "yyyy-MM-dd"
+            let date = df.string(from: now)
+            loganUpload(loganUploadUrl, date, appId, unionIdStr, device) { (data, resp, error) in
+                if error != nil{
+                    print("upload error")
+                    print(error ?? "unknow error of upload log")
+                    complete?(false)
+                }else{
+                    ///上传成功
+                    if let res = resp {
+                        print("upload succeed")
+                        print(res)
+                    }
+                    complete?(false)
+                    ///上传成功清空所有日志
+                    loganClearAllLogs()
                 }
-                complete?(false)
-                ///上传成功清空所有日志
-                loganClearAllLogs()
             }
+        }else{
+            complete?(false)
+            print("获取本地InfoPlist文件失败")
         }
+        
+        
+    }
+    
+    /// 设置日志收集等级, 0 全量收集, 1 只收集除 lower之外更高级的, 4 或大于4 的值, 不收集
+    public static func iLogLimit(_ type: UInt){
+        self.logLevelLimit = type
     }
     
 }
