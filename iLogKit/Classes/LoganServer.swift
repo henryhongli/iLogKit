@@ -40,15 +40,20 @@ public class LoganServer {
         
     }
 
+    ///上传日志
     public static func uploadAllLog(complete:((_ state:Bool)->())?){
         
         if let info = Bundle.main.infoDictionary {
-            let appId : String = info["CFBundleDisplayName"] as! String // 获取App的名称
+            // 获取App的名称
+            let appId : String = info["CFBundleDisplayName"] as! String
             let sysName = UIDevice.current.systemName //获取系统名称 例如：iPhone OS
             let sysVersion = UIDevice.current.systemVersion //获取系统版本 例如：9.2
+            // 设备名称以及系统
             let device = sysName + sysVersion
             let deviceUUID = UIDevice.current.identifierForVendor?.uuid  //获取设备唯一标识符 例如：FBF2306E-A0D8-4F4B-BDED-9333B627D3E6
+            ///设备唯一标识
             let unionIdStr = deviceUUID.debugDescription
+            ///日志时间
             let now = Date()
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd"
