@@ -24,10 +24,10 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 ///已集成Logan服务
-pod 'iLogKit', :git => 'https://github.com/henryhongli/iLogKit.git', :tag => '1.1.0'
+pod 'iLogKit', :git => 'https://github.com/henryhongli/iLogKit.git', :tag => '2.0.0'
 
 ///原始工具,未封装版本
-pod 'iLogKit', :git => 'https://github.com/henryhongli/iLogKit.git', :tag => '0.2.0'
+pod 'iLogKit', :git => 'https://github.com/henryhongli/iLogKit.git', :tag => '1.5.0'
 ```
 
 ## Author
