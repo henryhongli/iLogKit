@@ -32,7 +32,7 @@
 
 /* Begin PBXFileReference section */
 		34B3E1615852070B3E31A3D7 /* Pods-iLogKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLogKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-iLogKit_Tests/Pods-iLogKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		41941AB6426BE9703FCD3A10 /* iLogKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = iLogKit.podspec; path = ../iLogKit.podspec; sourceTree = "<group>"; };
+		41941AB6426BE9703FCD3A10 /* iLogKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = iLogKit.podspec; path = ../iLogKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		41E4B3C339D4D74AE4719316 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		5D2145DD6317118CBD54EE38 /* Pods_iLogKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLogKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* iLogKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLogKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
