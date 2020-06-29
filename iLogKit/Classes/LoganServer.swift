@@ -12,7 +12,7 @@ import Logan
 public class LoganServer {
     
     ///日志筛选等级, 默认不筛选,全量上传
-    fileprivate static var logLevelLimit : UInt = 0
+    fileprivate static var logLevelLimit : LocalLogType = .lower
     ///日志上传地址
     private static var loganUploadUrl : String = "http://192.168.1.189:9999/logan/upload.json"
     
@@ -84,7 +84,7 @@ public class LoganServer {
     }
     
     /// 设置日志收集等级, 0 全量收集, 1 只收集除 lower之外更高级的, 4 或大于4 的值, 不收集
-    public static func iLogLimit(_ type: UInt){
+    public static func iLogLimit(_ type: LocalLogType){
         self.logLevelLimit = type
     }
     
@@ -135,7 +135,7 @@ open class ilogViewModel:NSObject {
 extension ILOGAN where Base ==  ilogViewModel{
     /// 写入日志
     public func write() {
-        if base.logLevel > LoganServer.logLevelLimit {
+        if base.logLevel >= LoganServer.logLevelLimit.rawValue {
             /// 可以写入
             logan(base.logLevel, base.label)
         }
