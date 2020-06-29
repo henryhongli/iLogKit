@@ -27,7 +27,8 @@ pod 'iLogKit'
 ## License
 
 iLogKit is available under the MIT license. See the LICENSE file for more info.
-[![leitu](https://raw.githubusercontent.com/henryhongli/iLogKit/master/Example/App日志类图.png](https://raw.githubusercontent.com/henryhongli/iLogKit/master/Example/App日志类图.png)
+
+![类图](https://raw.githubusercontent.com/henryhongli/iLogKit/master/Example/App日志类图.png)
 
 
 ## 一.启动服务
