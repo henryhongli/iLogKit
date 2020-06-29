@@ -11,13 +11,23 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+# Android 
+[Android  日志工具库](https://github.com/sdohubs/ilog.git)[Android  日志工具库](https://github.com/sdohubs/ilog.git)
+
+# iOS Swift
+
+
 ## Installation
 
 iLogKit is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'iLogKit'
+///已集成Logan服务
+pod 'iLogKit', :git => 'https://github.com/henryhongli/iLogKit.git', :tag => '1.1.0'
+
+///原始工具,未封装版本
+pod 'iLogKit', :git => 'https://github.com/henryhongli/iLogKit.git', :tag => '0.2.0'
 ```
 
 ## Author
