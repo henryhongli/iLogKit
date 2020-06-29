@@ -20,6 +20,7 @@ public class LoganServer {
     /// - Parameters:
     ///   - keyData: key
     ///   - ivData: iv
+    ///   - uploadUrl: 上传地址
     ///   - ifNeedPrint: 是否需要在控制台实时输出日志内容, 默认false
     public static func startLogan(_ data: [String:String]){
         let keyData = data["keyData"]!.data(using: .utf8)
