@@ -36,11 +36,12 @@ iLogKit is available under the MIT license. See the LICENSE file for more info.
 ///启动日志收集服务
 let dic = ["keyData":"0123456789012345",
            "ivData":"0123456789012345",
-           "uploadUrl":"http://192.168.1.189:9999/logan/upload.json",
-            "print":"1"]
+           "uploadUrl":"http://192.168.1.189:9999/logan/upload.json"]
 LoganServer.startLogan(dic)
-///设置收集限制, 全量上传
-LoganServer.iLogLimit(0)
+///设置收集最低级别
+LoganServer.iLogLimit(.lower)
+///设置是否在控制台打印
+LoganServer.ifNeedPrint(true)
 ```
 ## 二.实现接口
 ```ruby
