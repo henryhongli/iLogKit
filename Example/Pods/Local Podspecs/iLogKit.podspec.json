@@ -1,9 +1,9 @@
 {
   "name": "iLogKit",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "summary": "A short description of iLogKit.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/261930323@qq.com/iLogKit",
+  "homepage": "https://github.com/henryhongli/iLogKit.git",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,8 +12,8 @@
     "261930323@qq.com": "zhang_mao008@163.com"
   },
   "source": {
-    "git": "https://github.com/261930323@qq.com/iLogKit.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/henryhongli/iLogKit.git",
+    "tag": "1.0.0"
   },
   "platforms": {
     "ios": "8.0"
