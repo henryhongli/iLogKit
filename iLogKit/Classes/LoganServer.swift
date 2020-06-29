@@ -128,15 +128,19 @@ extension ilogViewModel: ILoganProvider{}
 
 /// iLog 模型
 open class ilogViewModel:NSObject {
-    public var logLevel : UInt = 1
+    public var logLevel : LocalLogType
     public var label = ""
+    public init(level: LocalLogType, content: String = "") {
+        self.logLevel = level
+        self.label = content
+    }
 }
 extension ILOGAN where Base ==  ilogViewModel{
     /// 写入日志
     public func write() {
-        if base.logLevel >= LoganServer.logLevelLimit.rawValue {
+        if base.logLevel.rawValue >= LoganServer.logLevelLimit.rawValue {
             /// 可以写入
-            logan(base.logLevel, base.label)
+            logan(base.logLevel.rawValue, base.label)
         }
     }
 }
