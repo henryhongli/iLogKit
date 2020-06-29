@@ -41,7 +41,7 @@ public class LoganServer {
         
         if let info = Bundle.main.infoDictionary {
             // 获取App的名称
-            let appId : String = info["CFBundleDisplayName"] as! String
+            let appId : String = info["CFBundleName"] as! String
             let sysName = UIDevice.current.systemName //获取系统名称 例如：iPhone OS
             let sysVersion = UIDevice.current.systemVersion //获取系统版本 例如：9.2
             // 设备名称以及系统
