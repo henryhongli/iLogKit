@@ -47,7 +47,7 @@ class iLogbaseModule {
     ///详情信息
     var detail = ""
     ///日志等级
-    var logLevel : UInt = 0
+    var logLevel : LocalLogType = .lower
     ///操作结果枚举
     public enum iLogMessionResult {
         case success
@@ -66,11 +66,11 @@ extension iLogbaseModule : ILogServer{
    
     ///协议属性, 转换日志VM
     var iLogVM: ilogViewModel{
-        let vm = ilogViewModel()
-        /// 日志级别
-        vm.logLevel = self.logLevel
-        /// 日志内容
-        vm.label = logContent()
+        let vm = ilogViewModel(level: self.logLevel, content: logContent())
+//        /// 日志级别
+//        vm.logLevel = self.logLevel
+//        /// 日志内容
+//        vm.label = logContent()
         return vm
     }
     
@@ -106,7 +106,7 @@ class iLog_loginVM: iLogbaseModule {
         let vm = iLog_loginVM()
         vm.moduleName = .login
         vm.messionName = mession.rawValue
-        vm.logLevel = mession.level
+        vm.logLevel = LocalLogType(rawValue: mession.level) ?? .lower
         vm.userTag = tag
         vm.detail = detail
         return vm

@@ -17,7 +17,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		C39CCEE524A83DC7008AEC90 /* AppLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CCEE424A83DC7008AEC90 /* AppLogHandler.swift */; };
 		C39CCEE724A86C82008AEC90 /* EditLogRecivetype.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CCEE624A86C82008AEC90 /* EditLogRecivetype.swift */; };
-		C39CCEE924A9CB2B008AEC90 /* App日志类图.png in Resources */ = {isa = PBXBuildFile; fileRef = C39CCEE824A9CB2B008AEC90 /* App日志类图.png */; };
+		C39CCEEB24A9D85E008AEC90 /* App日志类图.png in Resources */ = {isa = PBXBuildFile; fileRef = C39CCEEA24A9D85E008AEC90 /* App日志类图.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,7 @@
 		BF62C34FA40643283D36013B /* Pods-iLogKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLogKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-iLogKit_Tests/Pods-iLogKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C39CCEE424A83DC7008AEC90 /* AppLogHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogHandler.swift; sourceTree = "<group>"; };
 		C39CCEE624A86C82008AEC90 /* EditLogRecivetype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLogRecivetype.swift; sourceTree = "<group>"; };
-		C39CCEE824A9CB2B008AEC90 /* App日志类图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App日志类图.png"; sourceTree = "<group>"; };
+		C39CCEEA24A9D85E008AEC90 /* App日志类图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App日志类图.png"; sourceTree = "<group>"; };
 		CDD0F9728E70C4D87EED57F5 /* Pods-iLogKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLogKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-iLogKit_Example/Pods-iLogKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +142,7 @@
 			children = (
 				41941AB6426BE9703FCD3A10 /* iLogKit.podspec */,
 				41E4B3C339D4D74AE4719316 /* README.md */,
-				C39CCEE824A9CB2B008AEC90 /* App日志类图.png */,
+				C39CCEEA24A9D85E008AEC90 /* App日志类图.png */,
 				6CA8906260665CEA9B3EBA6B /* LICENSE */,
 			);
 			name = "Podspec Metadata";
@@ -255,7 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C39CCEE924A9CB2B008AEC90 /* App日志类图.png in Resources */,
+				C39CCEEB24A9D85E008AEC90 /* App日志类图.png in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,

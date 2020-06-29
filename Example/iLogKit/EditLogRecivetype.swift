@@ -44,7 +44,7 @@ class EditLogRecivetype: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let log = iLogbaseModule()
-        log.logLevel = LocalLogType.lower.rawValue
+        log.logLevel = LocalLogType.lower
         log.moduleName = .login
         log.messionName = "展示编辑页"
         log.writeLog()
@@ -52,7 +52,7 @@ class EditLogRecivetype: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         let log = iLogbaseModule()
-        log.logLevel = LocalLogType.lower.rawValue
+        log.logLevel = LocalLogType.lower
         log.moduleName = .login
         log.messionName = "退出编辑页"
         log.writeLog()
