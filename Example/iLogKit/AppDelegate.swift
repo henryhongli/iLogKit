@@ -19,10 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dic = ["keyData":"0123456789012345",
                    "ivData":"0123456789012345",
                    "uploadUrl":"http://192.168.1.189:9999/logan/upload.json",
-                    "print":"1"]
+                    "ifNeedPrint":"1"]
         LoganServer.startLogan(dic)
         ///设置收集最低级别
         LoganServer.iLogLimit(.lower)
+        ///设置是否在控制台打印
+        LoganServer.ifNeedPrint(true)
         
         
         

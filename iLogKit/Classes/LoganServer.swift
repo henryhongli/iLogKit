@@ -33,12 +33,7 @@ public class LoganServer {
         let maxReversedDate: Int32 = 1
         loganInit(keyData!, ivData!, fileMax)
         loganSetMaxReversedDate(maxReversedDate)
-        if let ifNeedPrint = data["print"], ifNeedPrint == "0" {
-            loganUseASL(false)
-        }else{
-            loganUseASL(true)
-        }
-        
+        loganUseASL(true)
     }
 
     ///上传日志
@@ -86,6 +81,10 @@ public class LoganServer {
     /// 设置日志收集等级, 0 全量收集, 1 只收集除 lower之外更高级的, 4 或大于4 的值, 不收集
     public static func iLogLimit(_ type: LocalLogType){
         self.logLevelLimit = type
+    }
+    /// 设置是否需要在控制台打印日志
+    public static func ifNeedPrint(_ ifNeed: Bool){
+        loganUseASL(ifNeed)
     }
     
 }
