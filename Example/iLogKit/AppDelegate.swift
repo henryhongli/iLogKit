@@ -20,11 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                    "ivData":"0123456789012345",
                    "uploadUrl":"http://192.168.1.189:9999/logan/upload.json",
                     "ifNeedPrint":"1"]
-        LoganServer.startLogan(dic)
+        ILog.startLogan(dic)
         ///设置收集最低级别
-        LoganServer.iLogLimit(.lower)
+        ILog.iLogLimit(.lower)
         ///设置是否在控制台打印
-        LoganServer.ifNeedPrint(true)
+        ILog.ifNeedPrint(true)
         
         
         

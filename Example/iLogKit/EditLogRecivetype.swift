@@ -23,18 +23,18 @@ class EditLogRecivetype: UIViewController {
 
     @objc func selectedAllDroped(){
         /// 设置为error级别, 或者任意大于 4 的 整数
-        LoganServer.iLogLimit(LocalLogType.error)
+        ILog.iLogLimit(LocalLogType.error)
         UserDefaults.standard.set(iLogReciveType.allDroped.description, forKey: iLogReciveTypeKey)
         self.dismiss(animated: true, completion: nil)
     }
     @objc func selectedImportant(){
         /// 大于 lower 级别的日志将被收集
-        LoganServer.iLogLimit(LocalLogType.lower)
+        ILog.iLogLimit(LocalLogType.lower)
         UserDefaults.standard.set(iLogReciveType.importantInfo.description, forKey: iLogReciveTypeKey)
         self.dismiss(animated: true, completion: nil)
     }
     @objc func selectedAll(){
-        LoganServer.iLogLimit(.lower)
+        ILog.iLogLimit(.lower)
         UserDefaults.standard.set(iLogReciveType.all.description, forKey: iLogReciveTypeKey)
         self.dismiss(animated: true, completion: nil)
     }
@@ -43,18 +43,12 @@ class EditLogRecivetype: UIViewController {
     /// lower 级别日志, 设置日志采集级别后   可以   操作此处日志是否被采集
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let log = iLogbaseModule()
-        log.logLevel = LocalLogType.lower
-        log.moduleName = .login
-        log.messionName = "展示编辑页"
+        let log = BaseModel(moduleName: "登录模块", messionName: "展示编辑页", userTag: "18618379342", result: .success, detail: "", logLevel: .lower)
         log.writeLog()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        let log = iLogbaseModule()
-        log.logLevel = LocalLogType.lower
-        log.moduleName = .login
-        log.messionName = "退出编辑页"
+        let log = BaseModel(moduleName: "退出编辑页", messionName: "展示编辑页", userTag: "18618379342", result: .success, detail: "", logLevel: .lower)
         log.writeLog()
     }
     

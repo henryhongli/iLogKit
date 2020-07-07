@@ -17,7 +17,7 @@
 		1317CA1F2176D8EB1EFF55B8DE00471B /* aes_util.h in Headers */ = {isa = PBXBuildFile; fileRef = FF98463E36DC82C6F24928463E6B2527 /* aes_util.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		144662F87DC9D19BF6C1BA3CBF3F1DB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C077405A2C6EAC20FCEAF395A852A0CB /* Foundation.framework */; };
 		15F7F85CEC49F9DF2019EB2917FB92BB /* x509write_csr.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E31570E82CF28FBA02E7CEFB8BC182A /* x509write_csr.c */; };
-		16B0C48EBC883F9222AF5B500420F06D /* iLogKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 278CAFB6CA537F87FDFDD67FBA5D3C1A /* iLogKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16B0C48EBC883F9222AF5B500420F06D /* iLogKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D53F50AE7E61D28B98CD3128E0D6CDB /* iLogKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		172D9FB18E79808A761432C4C56A7333 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = C3499384F377E5AB870BD230D56E3EC7 /* base64.c */; };
 		18F1C59991BF84AD944A9C40CAB69A10 /* x509_crl.c in Sources */ = {isa = PBXBuildFile; fileRef = C85A0C58DA9CCE0F0587851F482DF3A2 /* x509_crl.c */; };
 		1A5BD820CD03035DCACE358BA4C27680 /* ssl_cache.c in Sources */ = {isa = PBXBuildFile; fileRef = 6C87AF756CA23E36CBB0350050FA9E63 /* ssl_cache.c */; };
@@ -116,6 +116,7 @@
 		A00757DD30B82CE1B3FACE9CD4ADCE33 /* md_wrap.c in Sources */ = {isa = PBXBuildFile; fileRef = CF1362DC009AF85F8D3B1FC4FA3D11E0 /* md_wrap.c */; };
 		A12D963C07C1EB2844EB1FA3224A67FD /* md4.c in Sources */ = {isa = PBXBuildFile; fileRef = BC1B18B5E6483538E052FE244A6A3212 /* md4.c */; };
 		A13CBCA657F53C11FA76103AFBA59A88 /* ctr_drbg.c in Sources */ = {isa = PBXBuildFile; fileRef = 5BEDE6A0ACDE487DB2034CAF0F6C06C2 /* ctr_drbg.c */; };
+		A1D7F650AE9D41E9ACB360CCAEE63991 /* ILog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2046D480BDA5104914877356651692A /* ILog.swift */; };
 		A20FA16899374B48F7BE20B13EC7A77A /* sha256.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A07975D91E58E6CD7B7AD6D1FF2B01F /* sha256.c */; };
 		A22B71A22F1CA44D0ED11ACDAA4768AA /* md_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 37D431821C57504ED9D68B8CE216FF36 /* md_internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A2FBC38961DF4E9B01E95BBC33A20380 /* x509_csr.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB8E8177D43F32B74B200A4DD2DAAFA /* x509_csr.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -131,7 +132,6 @@
 		B1B343CC6D9D351A122F598B7C2F38FC /* pk_wrap.c in Sources */ = {isa = PBXBuildFile; fileRef = 64603B49ACD786C325B2C908528C09BD /* pk_wrap.c */; };
 		B2DD45AA64F2F00CE0FC13D2690BE0D1 /* ecjpake.c in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2DB34ADDBD178DD94CA2748279CB5 /* ecjpake.c */; };
 		B3663760A96940E137FD534197028E11 /* clogan_core.h in Headers */ = {isa = PBXBuildFile; fileRef = 36628D22E7C8EEB5E955D73FAEF2055B /* clogan_core.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		B5D245A1954B9F043C8755909E5946C3 /* iLogKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF7947498DC923DA4BF62FDBCEE7023 /* iLogKit-dummy.m */; };
 		B6BBB36183B362C7FA9F400A5375EA15 /* console_util.c in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA99715DEAD7B1773D29629029FB99 /* console_util.c */; };
 		B70B49947D18C6533109AB923B20974A /* gcm.h in Headers */ = {isa = PBXBuildFile; fileRef = A57152449E421166653F95D50EA19685 /* gcm.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		B7354AF457CD8181D26B1C2ED1E10914 /* net_sockets.h in Headers */ = {isa = PBXBuildFile; fileRef = E48CC97900031BE9CFCC4B8D234B703D /* net_sockets.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -148,13 +148,13 @@
 		CA6915EAC94C230F803DCB13DFC8A715 /* ecp.h in Headers */ = {isa = PBXBuildFile; fileRef = ED51B80BDAC8F2B1C1BD111F95735B4C /* ecp.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD4F2A49CFE358CD9BEBA5FD364D6B12 /* cmac.h in Headers */ = {isa = PBXBuildFile; fileRef = E8E8D35C0F79BF70CB28680F05304E5A /* cmac.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CFCFDBE9881C5665C8A1621BA6CCA6AE /* certs.c in Sources */ = {isa = PBXBuildFile; fileRef = EA81F02CADBF829A3F640C4E0190EFBA /* certs.c */; };
-		D1193CD0D653FD619979FC888561C39C /* LoganServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC77B5BF1DC6862777004054CA94C5C /* LoganServer.swift */; };
 		D2BA31CC46ED6748667029A42EB021B7 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 83F23DE56596F82C4DC727878BE93AEC /* config.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		D3141D7DF1DB03EDFA6F903D46FC9416 /* version.h in Headers */ = {isa = PBXBuildFile; fileRef = 24542B9F867E4B6C65E8153AA40619FB /* version.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		D3CBF82BF3A676F5C079AE081CF5C5C6 /* README-zh.md in Sources */ = {isa = PBXBuildFile; fileRef = 6458B69569868F9E0C5AA5D61ED958FE /* README-zh.md */; };
 		D5A46D76591F03E219DF53AA8E7AB95B /* compat-1.3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3190D48AC72D3B7094DE56A662DCF505 /* compat-1.3.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		D5CAE8EBC69BB8473B9967E94C72D0C4 /* clogan_status.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FC2335EF9E673E5C2FCBBABA1E59C74 /* clogan_status.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D6E30A4EB7A8967010B8123639070A62 /* x509_csr.c in Sources */ = {isa = PBXBuildFile; fileRef = EFE5AE7EF6E7BE12C16994A3358C20FB /* x509_csr.c */; };
+		D7C9DE0F2FD3086434FAECD27698ED74 /* iLogKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD13E744B82211DB64E5C0E8D1EAD96 /* iLogKit-dummy.m */; };
 		DB978B0EF6C6AAD20B5E099299CA0BEF /* asn1.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FCD77A89309CA3C4AFC3A56C670E8D4 /* asn1.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		DEA9AEB40DA1FF9E757F912BB28D5B8F /* pkwrite.c in Sources */ = {isa = PBXBuildFile; fileRef = CEF9B754DB37E97232BFC235D2C45791 /* pkwrite.c */; };
 		E0186FB000DC9DBACAA83DD6D4793843 /* ssl_ticket.c in Sources */ = {isa = PBXBuildFile; fileRef = 24878E1A4B256B2A631F2BB93D64479A /* ssl_ticket.c */; };
@@ -232,7 +232,7 @@
 		06078247EBAA315EF0C12FDEE4632905 /* error.c */ = {isa = PBXFileReference; includeInIndex = 1; name = error.c; path = Logan/mbedtls/library/error.c; sourceTree = "<group>"; };
 		07297DDC83DBB35BDFB15889662330BD /* arc4.c */ = {isa = PBXFileReference; includeInIndex = 1; name = arc4.c; path = Logan/mbedtls/library/arc4.c; sourceTree = "<group>"; };
 		0C8BBC33ADAA55CF6160369314A2D7BF /* threading.c */ = {isa = PBXFileReference; includeInIndex = 1; name = threading.c; path = Logan/mbedtls/library/threading.c; sourceTree = "<group>"; };
-		0D7E017D5D8DB29F4E01DF10CD058ACC /* iLogKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iLogKit.release.xcconfig; sourceTree = "<group>"; };
+		0D53F50AE7E61D28B98CD3128E0D6CDB /* iLogKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iLogKit-umbrella.h"; sourceTree = "<group>"; };
 		0E43E2A94F5E938E0622329D3310063B /* debug.c */ = {isa = PBXFileReference; includeInIndex = 1; name = debug.c; path = Logan/mbedtls/library/debug.c; sourceTree = "<group>"; };
 		128D5BF5EDEBED8473E55AC9A5770C19 /* base_util.c */ = {isa = PBXFileReference; includeInIndex = 1; name = base_util.c; path = Logan/Clogan/base_util.c; sourceTree = "<group>"; };
 		12E813BF696816B4E67D91809C9FBFB3 /* ripemd160.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ripemd160.c; path = Logan/mbedtls/library/ripemd160.c; sourceTree = "<group>"; };
@@ -246,19 +246,14 @@
 		1EA11BDC6214EFA89CED65CEF838706D /* sha1.c */ = {isa = PBXFileReference; includeInIndex = 1; name = sha1.c; path = Logan/mbedtls/library/sha1.c; sourceTree = "<group>"; };
 		1F46D5403AB8C19F7EC4FC42D84C8760 /* md.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = md.h; path = Logan/mbedtls/include/mbedtls/md.h; sourceTree = "<group>"; };
 		1F552FB00EC7E32DED2B862FF61F47F7 /* ssl_srv.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ssl_srv.c; path = Logan/mbedtls/library/ssl_srv.c; sourceTree = "<group>"; };
-		211791B08371FD877E6DAC8A2792F635 /* iLogKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = iLogKit.modulemap; sourceTree = "<group>"; };
 		243738E5ED0610E50B6FA6430989E3BB /* padlock.c */ = {isa = PBXFileReference; includeInIndex = 1; name = padlock.c; path = Logan/mbedtls/library/padlock.c; sourceTree = "<group>"; };
 		244B9E827B06FD820FAEB2235CA80BC2 /* Pods-iLogKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iLogKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		24542B9F867E4B6C65E8153AA40619FB /* version.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = version.h; path = Logan/mbedtls/include/mbedtls/version.h; sourceTree = "<group>"; };
 		24878E1A4B256B2A631F2BB93D64479A /* ssl_ticket.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ssl_ticket.c; path = Logan/mbedtls/library/ssl_ticket.c; sourceTree = "<group>"; };
-		278CAFB6CA537F87FDFDD67FBA5D3C1A /* iLogKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iLogKit-umbrella.h"; sourceTree = "<group>"; };
-		297E1EF7097D34DB71EDCFAFA05518F3 /* iLogKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = iLogKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2A91835E6292693FF76000E761C2F96E /* oid.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = oid.h; path = Logan/mbedtls/include/mbedtls/oid.h; sourceTree = "<group>"; };
-		2AACDD5CE85AD57318800702AC740DCE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		2D79A525E880943DC6822891768D1CEB /* md4.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = md4.h; path = Logan/mbedtls/include/mbedtls/md4.h; sourceTree = "<group>"; };
 		2D84BDDB8BC530704A83A8AC6AD46DDC /* Pods-iLogKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iLogKit_Tests-Info.plist"; sourceTree = "<group>"; };
 		2E32F761DEF0D095DB4AC0610F357A3D /* Pods-iLogKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iLogKit_Example.release.xcconfig"; sourceTree = "<group>"; };
-		2E3428A2A1361D733A1192860A375A4F /* iLogKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "iLogKit-Info.plist"; sourceTree = "<group>"; };
 		30075C612D7C0B42B33773B36DE1C63A /* Logan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Logan.h; path = Logan/iOS/Logan.h; sourceTree = "<group>"; };
 		318ED397D177C95A6BCB65A089854835 /* timing.c */ = {isa = PBXFileReference; includeInIndex = 1; name = timing.c; path = Logan/mbedtls/library/timing.c; sourceTree = "<group>"; };
 		3190D48AC72D3B7094DE56A662DCF505 /* compat-1.3.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "compat-1.3.h"; path = "Logan/mbedtls/include/mbedtls/compat-1.3.h"; sourceTree = "<group>"; };
@@ -282,6 +277,7 @@
 		419C213666D51E3A29AA3D44E503BF78 /* aes.c */ = {isa = PBXFileReference; includeInIndex = 1; name = aes.c; path = Logan/mbedtls/library/aes.c; sourceTree = "<group>"; };
 		443ED6EC3E32AEA1250361A8202B286D /* version_features.c */ = {isa = PBXFileReference; includeInIndex = 1; name = version_features.c; path = Logan/mbedtls/library/version_features.c; sourceTree = "<group>"; };
 		464D9CF261B18EE08C9BB74764FBF47B /* mmap_util.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mmap_util.c; path = Logan/Clogan/mmap_util.c; sourceTree = "<group>"; };
+		46C3A4706FAAB8BDB048B50B70D39562 /* iLogKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = iLogKit.modulemap; sourceTree = "<group>"; };
 		47D153A270E39E1BA894AE73EA85D41E /* pkparse.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pkparse.c; path = Logan/mbedtls/library/pkparse.c; sourceTree = "<group>"; };
 		4ADCEB94D753BEBD9475141B7D11177A /* blowfish.c */ = {isa = PBXFileReference; includeInIndex = 1; name = blowfish.c; path = Logan/mbedtls/library/blowfish.c; sourceTree = "<group>"; };
 		4B4D261E6F2A83933A4091E03F728F86 /* aesni.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aesni.h; path = Logan/mbedtls/include/mbedtls/aesni.h; sourceTree = "<group>"; };
@@ -305,12 +301,13 @@
 		6458B69569868F9E0C5AA5D61ED958FE /* README-zh.md */ = {isa = PBXFileReference; includeInIndex = 1; name = "README-zh.md"; path = "Logan/iOS/README-zh.md"; sourceTree = "<group>"; };
 		64603B49ACD786C325B2C908528C09BD /* pk_wrap.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pk_wrap.c; path = Logan/mbedtls/library/pk_wrap.c; sourceTree = "<group>"; };
 		660B0D09A926ED1E8991B54645A6AFC2 /* error.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = error.h; path = Logan/mbedtls/include/mbedtls/error.h; sourceTree = "<group>"; };
+		66D758AF41232D0E73E202BC61D1FB53 /* iLogKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iLogKit-prefix.pch"; sourceTree = "<group>"; };
 		6742F723B0F732F601175307C718F6AE /* padlock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = padlock.h; path = Logan/mbedtls/include/mbedtls/padlock.h; sourceTree = "<group>"; };
 		67C566D4E732EAB6F716D0F81911CB6B /* x509.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = x509.h; path = Logan/mbedtls/include/mbedtls/x509.h; sourceTree = "<group>"; };
-		6821BEA4E5F6937FCE09A7CFD89AB3B1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		68B12A085004A3D9D3B1849E0AF2E016 /* md2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = md2.h; path = Logan/mbedtls/include/mbedtls/md2.h; sourceTree = "<group>"; };
 		69B0357B39656A291129B085B32EFC31 /* ssl_cookie.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ssl_cookie.c; path = Logan/mbedtls/library/ssl_cookie.c; sourceTree = "<group>"; };
 		6ACAE9E04C515E2D7B4CBC6C6FD9648E /* entropy_poll.c */ = {isa = PBXFileReference; includeInIndex = 1; name = entropy_poll.c; path = Logan/mbedtls/library/entropy_poll.c; sourceTree = "<group>"; };
+		6C0D47E4DAD661979D5D0E7DD26BCFF8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		6C87AF756CA23E36CBB0350050FA9E63 /* ssl_cache.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ssl_cache.c; path = Logan/mbedtls/library/ssl_cache.c; sourceTree = "<group>"; };
 		6D44BD24B079723116E6E9085F94D3E8 /* directory_util.c */ = {isa = PBXFileReference; includeInIndex = 1; name = directory_util.c; path = Logan/Clogan/directory_util.c; sourceTree = "<group>"; };
 		6F87C8D9EFFC83735C9F200EDA459F42 /* sha256.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = sha256.h; path = Logan/mbedtls/include/mbedtls/sha256.h; sourceTree = "<group>"; };
@@ -344,12 +341,12 @@
 		98183A74EA5184E2AD86684D295A502C /* entropy.c */ = {isa = PBXFileReference; includeInIndex = 1; name = entropy.c; path = Logan/mbedtls/library/entropy.c; sourceTree = "<group>"; };
 		9825D26208B495E6AC5221DBCC9D36ED /* Pods_iLogKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_iLogKit_Example.framework; path = "Pods-iLogKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99AC2EB9D060E3759A34DBCD3120539D /* ecdsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ecdsa.h; path = Logan/mbedtls/include/mbedtls/ecdsa.h; sourceTree = "<group>"; };
+		9A7F30CDBAF5527524ACC0862D6DC251 /* iLogKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "iLogKit-Info.plist"; sourceTree = "<group>"; };
 		9BB278FAEB817077952D0E8CEF598379 /* pk_internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pk_internal.h; path = Logan/mbedtls/include/mbedtls/pk_internal.h; sourceTree = "<group>"; };
 		9BF07690C798D2CFE0D06E20EE69A797 /* bignum.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = bignum.h; path = Logan/mbedtls/include/mbedtls/bignum.h; sourceTree = "<group>"; };
 		9C341826AABFE0728E92D4A649E6268A /* base_util.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = base_util.h; path = Logan/Clogan/base_util.h; sourceTree = "<group>"; };
 		9C75F8568C0074F11CAC904A0072D4C1 /* pem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pem.h; path = Logan/mbedtls/include/mbedtls/pem.h; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DC77B5BF1DC6862777004054CA94C5C /* LoganServer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LoganServer.swift; path = iLogKit/Classes/LoganServer.swift; sourceTree = "<group>"; };
 		9E7A66A00CD707E4E79B08B6BDAD5C64 /* md5.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = md5.h; path = Logan/mbedtls/include/mbedtls/md5.h; sourceTree = "<group>"; };
 		9F5460650313155D539A5ACE61134F18 /* version.c */ = {isa = PBXFileReference; includeInIndex = 1; name = version.c; path = Logan/mbedtls/library/version.c; sourceTree = "<group>"; };
 		A0A625853FF71D91CCB704BF78E2681E /* platform.c */ = {isa = PBXFileReference; includeInIndex = 1; name = platform.c; path = Logan/mbedtls/library/platform.c; sourceTree = "<group>"; };
@@ -372,6 +369,7 @@
 		B441907D3896AB21FDE67F81877B3D32 /* ssl_cli.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ssl_cli.c; path = Logan/mbedtls/library/ssl_cli.c; sourceTree = "<group>"; };
 		B51E530795C7F856BA9F880AEABB42DE /* xtea.c */ = {isa = PBXFileReference; includeInIndex = 1; name = xtea.c; path = Logan/mbedtls/library/xtea.c; sourceTree = "<group>"; };
 		B74799FFEE34DC6DDE22A7DDAFBA782D /* rsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = rsa.h; path = Logan/mbedtls/include/mbedtls/rsa.h; sourceTree = "<group>"; };
+		BA3FC24DC0FCDCC44246C943C2BC9150 /* iLogKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iLogKit.release.xcconfig; sourceTree = "<group>"; };
 		BA849A5D3347511C0E09CE1F748C6D3B /* camellia.c */ = {isa = PBXFileReference; includeInIndex = 1; name = camellia.c; path = Logan/mbedtls/library/camellia.c; sourceTree = "<group>"; };
 		BB20DE823BEAADA4D48653C5B9C42FE4 /* cJSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = cJSON.h; path = Logan/Clogan/cJSON.h; sourceTree = "<group>"; };
 		BC1B18B5E6483538E052FE244A6A3212 /* md4.c */ = {isa = PBXFileReference; includeInIndex = 1; name = md4.c; path = Logan/mbedtls/library/md4.c; sourceTree = "<group>"; };
@@ -386,13 +384,13 @@
 		C39E6F4E4710B2676EEFA492E1DB3202 /* ecdh.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ecdh.c; path = Logan/mbedtls/library/ecdh.c; sourceTree = "<group>"; };
 		C61E498C40FB467707B9DB411F61ACB6 /* des.c */ = {isa = PBXFileReference; includeInIndex = 1; name = des.c; path = Logan/mbedtls/library/des.c; sourceTree = "<group>"; };
 		C85A0C58DA9CCE0F0587851F482DF3A2 /* x509_crl.c */ = {isa = PBXFileReference; includeInIndex = 1; name = x509_crl.c; path = Logan/mbedtls/library/x509_crl.c; sourceTree = "<group>"; };
-		C93113DD2561C1A19410ACE9DE6C3E54 /* iLogKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iLogKit-prefix.pch"; sourceTree = "<group>"; };
+		CA7B8715C8C35782667C2EAFC59CCE1E /* iLogKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iLogKit.debug.xcconfig; sourceTree = "<group>"; };
+		CBD13E744B82211DB64E5C0E8D1EAD96 /* iLogKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iLogKit-dummy.m"; sourceTree = "<group>"; };
 		CC3499DA7DA5326BE7B7C5BE2871D77D /* arc4.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = arc4.h; path = Logan/mbedtls/include/mbedtls/arc4.h; sourceTree = "<group>"; };
 		CEF9B754DB37E97232BFC235D2C45791 /* pkwrite.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pkwrite.c; path = Logan/mbedtls/library/pkwrite.c; sourceTree = "<group>"; };
 		CF1362DC009AF85F8D3B1FC4FA3D11E0 /* md_wrap.c */ = {isa = PBXFileReference; includeInIndex = 1; name = md_wrap.c; path = Logan/mbedtls/library/md_wrap.c; sourceTree = "<group>"; };
+		CF407776FC4D000A31A3A4C32E3135A6 /* iLogKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = iLogKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CF43FDF8C7010CBC4B05902B9ECFAE61 /* certs.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = certs.h; path = Logan/mbedtls/include/mbedtls/certs.h; sourceTree = "<group>"; };
-		CFF7947498DC923DA4BF62FDBCEE7023 /* iLogKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "iLogKit-dummy.m"; sourceTree = "<group>"; };
-		D01140CB37A5995CD92A679DEF171A5A /* iLogKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iLogKit.debug.xcconfig; sourceTree = "<group>"; };
 		D024C7F0B82F010ED6CEE8DA3027458B /* pkcs12.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pkcs12.c; path = Logan/mbedtls/library/pkcs12.c; sourceTree = "<group>"; };
 		D156FBC74DEB93CB198D3A80417814FB /* zlib_util.c */ = {isa = PBXFileReference; includeInIndex = 1; name = zlib_util.c; path = Logan/Clogan/zlib_util.c; sourceTree = "<group>"; };
 		D56F927B742D85007FF949913F66EF52 /* sha1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = sha1.h; path = Logan/mbedtls/include/mbedtls/sha1.h; sourceTree = "<group>"; };
@@ -424,6 +422,8 @@
 		EBF931A3EAF6447ABB59B36A8BA1C653 /* clogan_core.c */ = {isa = PBXFileReference; includeInIndex = 1; name = clogan_core.c; path = Logan/Clogan/clogan_core.c; sourceTree = "<group>"; };
 		ED51B80BDAC8F2B1C1BD111F95735B4C /* ecp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ecp.h; path = Logan/mbedtls/include/mbedtls/ecp.h; sourceTree = "<group>"; };
 		EFE5AE7EF6E7BE12C16994A3358C20FB /* x509_csr.c */ = {isa = PBXFileReference; includeInIndex = 1; name = x509_csr.c; path = Logan/mbedtls/library/x509_csr.c; sourceTree = "<group>"; };
+		F2046D480BDA5104914877356651692A /* ILog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ILog.swift; path = iLogKit/Classes/ILog.swift; sourceTree = "<group>"; };
+		F4237A6755AD4EC86402E3BF3FBCED74 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		F5831A8B9201AB848410FEBFE0907659 /* base64.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = base64.h; path = Logan/mbedtls/include/mbedtls/base64.h; sourceTree = "<group>"; };
 		FAB8E8177D43F32B74B200A4DD2DAAFA /* x509_csr.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = x509_csr.h; path = Logan/mbedtls/include/mbedtls/x509_csr.h; sourceTree = "<group>"; };
 		FB17E9C3C28C1940A8021A4536F91BDE /* Pods-iLogKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iLogKit_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -470,17 +470,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10BF1AA681223F53B2D675DA1F0C51ED /* iLogKit */ = {
-			isa = PBXGroup;
-			children = (
-				9DC77B5BF1DC6862777004054CA94C5C /* LoganServer.swift */,
-				AE53ECAAB3B73EC5958EC52842D62CB5 /* Pod */,
-				5ED908DDA4476379EAE50045EBDBCFBD /* Support Files */,
-			);
-			name = iLogKit;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		2FE94048F7E291AD0FFC6DF30D3D3728 /* Logan */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,6 +506,17 @@
 			path = Logan;
 			sourceTree = "<group>";
 		};
+		3C464A4013D11E56B536BEB54480A375 /* iLogKit */ = {
+			isa = PBXGroup;
+			children = (
+				F2046D480BDA5104914877356651692A /* ILog.swift */,
+				478D9CD970E6CC6EC440CD59BFBEA0BA /* Pod */,
+				AFF1A40A0D0C79D653AAD33C87A452F3 /* Support Files */,
+			);
+			name = iLogKit;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		40E9BCEECFD2CB743E42ECE0D615D2BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,27 +526,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		478D9CD970E6CC6EC440CD59BFBEA0BA /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				CF407776FC4D000A31A3A4C32E3135A6 /* iLogKit.podspec */,
+				F4237A6755AD4EC86402E3BF3FBCED74 /* LICENSE */,
+				6C0D47E4DAD661979D5D0E7DD26BCFF8 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		5ACC16DFEF771645F85B9E94B1BC81F9 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				10BF1AA681223F53B2D675DA1F0C51ED /* iLogKit */,
+				3C464A4013D11E56B536BEB54480A375 /* iLogKit */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		5ED908DDA4476379EAE50045EBDBCFBD /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				211791B08371FD877E6DAC8A2792F635 /* iLogKit.modulemap */,
-				CFF7947498DC923DA4BF62FDBCEE7023 /* iLogKit-dummy.m */,
-				2E3428A2A1361D733A1192860A375A4F /* iLogKit-Info.plist */,
-				C93113DD2561C1A19410ACE9DE6C3E54 /* iLogKit-prefix.pch */,
-				278CAFB6CA537F87FDFDD67FBA5D3C1A /* iLogKit-umbrella.h */,
-				D01140CB37A5995CD92A679DEF171A5A /* iLogKit.debug.xcconfig */,
-				0D7E017D5D8DB29F4E01DF10CD058ACC /* iLogKit.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/iLogKit";
 			sourceTree = "<group>";
 		};
 		8A1D04ABE966C60120D2249EE78B6109 /* Pods-iLogKit_Example */ = {
@@ -574,14 +569,19 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		AE53ECAAB3B73EC5958EC52842D62CB5 /* Pod */ = {
+		AFF1A40A0D0C79D653AAD33C87A452F3 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				297E1EF7097D34DB71EDCFAFA05518F3 /* iLogKit.podspec */,
-				6821BEA4E5F6937FCE09A7CFD89AB3B1 /* LICENSE */,
-				2AACDD5CE85AD57318800702AC740DCE /* README.md */,
+				46C3A4706FAAB8BDB048B50B70D39562 /* iLogKit.modulemap */,
+				CBD13E744B82211DB64E5C0E8D1EAD96 /* iLogKit-dummy.m */,
+				9A7F30CDBAF5527524ACC0862D6DC251 /* iLogKit-Info.plist */,
+				66D758AF41232D0E73E202BC61D1FB53 /* iLogKit-prefix.pch */,
+				0D53F50AE7E61D28B98CD3128E0D6CDB /* iLogKit-umbrella.h */,
+				CA7B8715C8C35782667C2EAFC59CCE1E /* iLogKit.debug.xcconfig */,
+				BA3FC24DC0FCDCC44246C943C2BC9150 /* iLogKit.release.xcconfig */,
 			);
-			name = Pod;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/iLogKit";
 			sourceTree = "<group>";
 		};
 		B08005F3A2B0E584B4727CECB5048C83 /* mbedtls */ = {
@@ -986,7 +986,7 @@
 			buildConfigurationList = D1E6269EFA2ADEBC44A96F55C6B3861B /* Build configuration list for PBXNativeTarget "iLogKit" */;
 			buildPhases = (
 				828F206AB44FA5D6916229B92DC55750 /* Headers */,
-				B46811D73F8FBE5AC406708DC721879A /* Sources */,
+				8754A5BAEB0F927BE2C3A3863F23F932 /* Sources */,
 				DDDDF1816E71647C8248E0A6AA5D14EF /* Frameworks */,
 				EB42C6CCF77D68AFA3D2CE25F7290F79 /* Resources */,
 			);
@@ -1162,20 +1162,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8754A5BAEB0F927BE2C3A3863F23F932 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D7F650AE9D41E9ACB360CCAEE63991 /* ILog.swift in Sources */,
+				D7C9DE0F2FD3086434FAECD27698ED74 /* iLogKit-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ABC1D5420FE5BD557DE25E4CD09472CA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F1844FE35B203531422A9A7E3B148EF8 /* Pods-iLogKit_Example-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B46811D73F8FBE5AC406708DC721879A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B5D245A1954B9F043C8755909E5946C3 /* iLogKit-dummy.m in Sources */,
-				D1193CD0D653FD619979FC888561C39C /* LoganServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1310,7 +1310,7 @@
 		};
 		7C1EDAFCAC49BB0D15D5AFA371A532E4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D7E017D5D8DB29F4E01DF10CD058ACC /* iLogKit.release.xcconfig */;
+			baseConfigurationReference = BA3FC24DC0FCDCC44246C943C2BC9150 /* iLogKit.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1533,7 +1533,7 @@
 		};
 		E29D4FEC7CA2EA2DF5E39FB82D8E7545 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D01140CB37A5995CD92A679DEF171A5A /* iLogKit.debug.xcconfig */;
+			baseConfigurationReference = CA7B8715C8C35782667C2EAFC59CCE1E /* iLogKit.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
