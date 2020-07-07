@@ -91,7 +91,7 @@ public class ILog {
     public static func write(_ level: UInt, _ label:String){
         logan(level, label)
     }
-    public static func write<T: ILogServer>(_ info: T) {
+    public static func write<T:ILogServer>(_ info: T) {
         let actionAndResult = "(\(info.messionName), \(info.result.description))"
         let label = "【\(info.moduleName)】" + "\t" + "【\(info.userTag)】" + "\t" + actionAndResult + "{\(info.detail)}" + "\t"
         logan(info.logLevel.rawValue, label)
@@ -114,17 +114,17 @@ public enum LocalLogType: UInt {
 public protocol ILogServer {
 
     ///模块名称  如 : 登录模块
-    var moduleName:String{get}
+    var moduleName:String{get set}
     ///业务点名称 如: 账号密码登录
-    var messionName:String{get}
+    var messionName:String{get set}
     ///用户标识, 例: 手机号, userID等
     var userTag:String{get}
     ///操作结果
-    var result:iLogMessionResult{get}
+    var result:iLogMessionResult{get set}
     ///详情信息
-    var detail :String{get}
+    var detail :String{get set}
     ///日志等级
-    var logLevel : LocalLogType{get}
+    var logLevel : LocalLogType{get set}
 }
 ///操作结果枚举
 public enum iLogMessionResult {

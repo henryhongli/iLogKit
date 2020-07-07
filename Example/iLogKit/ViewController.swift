@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBAction func loginLog(_ sender: Any) {
         let log = LogInfo(moduleName: "", messionName: "", userTag: "", result: .success, detail: "", logLevel: .lower)
         
-        ILog.write(LogInfo)
+        ILog.write(log.self)
         
     }
     ///模拟登录请求报错日志收集
@@ -27,14 +27,15 @@ class ViewController: UIViewController {
         let pwd = "aa12345"
         /// 假设网络请求错误
         let error = NSError.init(domain: "hhh", code: 1001, userInfo: ["msg":"账号密码错误"])
-        let log = iLogBaseModel(moduleName: "登录模块",
-                            messionName: "登录按钮点击",
-                            userTag: "18618379342",
-                            result: .fail("\(error)"),
-                            detail: "account:\(phone),pwd:\(pwd)",
-                            logLevel: .lower)
-
-        log.writeLog()
+        
+        let log = LogInfo(moduleName: "登录模块",
+                          messionName: "登录按钮点击",
+                          userTag: "18618379342",
+                          result: .fail("\(error)"),
+                          detail: "account:\(phone),pwd:\(pwd)",
+                         logLevel: .lower)
+        
+        ILog.write(log.self)
     }
     ///编辑日志收集级别
     @IBAction func editiLogKit(_ sender: Any) {
@@ -66,22 +67,6 @@ class ViewController: UIViewController {
             self.showToastLabel(state ? "日志上传成功":"日志上传失败")
         }
     }
-    
-    
-    
-    
-    /// lower 级别日志, 设置日志采集级别后   可以   操作此处日志是否被采集
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let log = iLogBaseModel(moduleName: "登录模块", messionName: "展示登录页", userTag: "", result: .success, detail: "", logLevel: .lower)
-        log.writeLog()
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        let log = iLogBaseModel(moduleName: "登录模块", messionName: "退出登录页", userTag: "", result: .success, detail: "", logLevel: .lower)
-        log.writeLog()
-    }
-    
     
     
     

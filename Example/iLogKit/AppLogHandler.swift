@@ -32,18 +32,23 @@ enum messionOfLogin : String{
     }
 }
 
-struct LogInfo: ILogServer {
+
+
+struct LogInfo :ILogServer{
     var moduleName: String
-    
+
     var messionName: String
-    
+
     var userTag: String
-    
+
     var result: iLogMessionResult
-    
+
     var detail: String
-    
+
     var logLevel: LocalLogType
+    
+}
+extension ILogServer where Self == LogInfo {
     
 }
 
