@@ -31,33 +31,23 @@ enum messionOfLogin : String{
         }
     }
 }
-/// 登录模块VM
-//struct  iLog_loginVM: BaseModel {
-//    static func new(_ mession: messionOfLogin, _ detail: String = "", _ tag: String = "")->iLog_loginVM{
-//        let vm = iLog_loginVM()
-//        vm.moduleName = .login
-//        vm.messionName = mession.rawValue
-//        vm.logLevel = LocalLogType(rawValue: mession.level) ?? .lower
-//        vm.userTag = tag
-//        vm.detail = detail
-//        return vm
-//    }
-//}
+
+struct LogInfo: ILogServer {
+    var moduleName: String
+    
+    var messionName: String
+    
+    var userTag: String
+    
+    var result: iLogMessionResult
+    
+    var detail: String
+    
+    var logLevel: LocalLogType
+    
+}
 
 
-
-///// 登录模块VM
-//class iLog_loginVM: iLogbaseModule {
-//    static func new(_ mession: messionOfLogin, _ detail: String = "", _ tag: String = "")->iLog_loginVM{
-//        let vm = iLog_loginVM()
-//        vm.moduleName = .login
-//        vm.messionName = mession.rawValue
-//        vm.logLevel = LocalLogType(rawValue: mession.level) ?? .lower
-//        vm.userTag = tag
-//        vm.detail = detail
-//        return vm
-//    }
-//}
 
 
 

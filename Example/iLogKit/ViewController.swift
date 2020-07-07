@@ -15,8 +15,9 @@ class ViewController: UIViewController {
     
     ///模拟登录成功操作
     @IBAction func loginLog(_ sender: Any) {
-        let log = iLogBaseModel(moduleName: "登录模块", messionName: "账号密码登录", userTag: "18618379342", result: .success, detail: "", logLevel: .lower)
-        log.writeLog()
+        let log = LogInfo(moduleName: "", messionName: "", userTag: "", result: .success, detail: "", logLevel: .lower)
+        
+        ILog.write(LogInfo)
         
     }
     ///模拟登录请求报错日志收集

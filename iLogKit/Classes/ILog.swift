@@ -88,7 +88,14 @@ public class ILog {
     }
     
     
-    
+    public static func write(_ level: UInt, _ label:String){
+        logan(level, label)
+    }
+    public static func write<T: ILogServer>(_ info: T) {
+        let actionAndResult = "(\(info.messionName), \(info.result.description))"
+        let label = "【\(info.moduleName)】" + "\t" + "【\(info.userTag)】" + "\t" + actionAndResult + "{\(info.detail)}" + "\t"
+        logan(info.logLevel.rawValue, label)
+    }
 }
 
 
@@ -103,108 +110,32 @@ public enum LocalLogType: UInt {
     case lower = 1, normal, important, error
 }
 
-
-//MARK- 命名空间声明
-public protocol ILoganProvider{}
-
-
-public struct ILOGAN<Base>{
-    public let base : Base
-    fileprivate init (_ base: Base){
-        self.base = base
-    }
-}
-
-
-extension ILoganProvider{
-    public var iLog: ILOGAN<Self>{
-        return ILOGAN(self)
-    }
-    public static var iLog: ILOGAN<Self>.Type{
-        return ILOGAN<Self>.self
-    }
-}
-extension ilogViewModel: ILoganProvider{}
-
-    
-
-/// iLog 模型
-open class ilogViewModel:NSObject {
-    public var logLevel : LocalLogType
-    public var label = ""
-    public init(level: LocalLogType, content: String = "") {
-        self.logLevel = level
-        self.label = content
-    }
-}
-extension ILOGAN where Base ==  ilogViewModel{
-    /// 写入日志
-    public func write() {
-        if base.logLevel.rawValue >= ILog.logLevelLimit.rawValue {
-            /// 可以写入
-            logan(base.logLevel.rawValue, base.label)
-        }
-    }
-}
 /// iLog 模型转换协议
 public protocol ILogServer {
-//    func makeLabel()->ilogViewModel
-    var iLogVM : ilogViewModel { get }
-}
 
-public struct iLogBaseModel{
     ///模块名称  如 : 登录模块
-    public var moduleName = ""
+    var moduleName:String{get}
     ///业务点名称 如: 账号密码登录
-    public var messionName = ""
+    var messionName:String{get}
     ///用户标识, 例: 手机号, userID等
-    public var userTag = ""
+    var userTag:String{get}
     ///操作结果
-    public var result = iLogMessionResult.success
+    var result:iLogMessionResult{get}
     ///详情信息
-    public var detail = ""
+    var detail :String{get}
     ///日志等级
-    public var logLevel : LocalLogType = .lower
-    ///操作结果枚举
-    public enum iLogMessionResult {
-        case success
-        case fail(String)
-        var description : String{
-            switch self {
-            case .success: return "操作成功"
-            case .fail(let reason): return "操作失败, 原因:\(reason)"
-            }
+    var logLevel : LocalLogType{get}
+}
+///操作结果枚举
+public enum iLogMessionResult {
+    case success
+    case fail(String)
+    var description : String{
+        switch self {
+        case .success: return "操作成功"
+        case .fail(let reason): return "操作失败, 原因:\(reason)"
         }
     }
-    public init(moduleName: String, messionName: String, userTag: String, result: iLogMessionResult, detail: String, logLevel: LocalLogType){
-        self.moduleName = moduleName
-        self.messionName = messionName
-        self.userTag = userTag
-        self.result = result
-        self.detail = detail
-        self.logLevel = logLevel
-    }
 }
-extension iLogBaseModel: ILogServer{
-    public var iLogVM: ilogViewModel {
-        let vm = ilogViewModel(level: self.logLevel, content: logContent())
-        return vm
-    }
-    ///记录日志
-    public func writeLog() {
-        self.iLogVM.iLog.write()
-    }
-    /// 拼接日志内容, 可自定义
-    /// "【模块名称】" + "\t" + "【用户身份标识】" + "\t" + "(业务标识,操作结果 + "失败的原因" + "\t" + " 详情信息,成功可打印重要数据(接口返回), 失败时可打印重要参数如接口请求参数"
-    ///【登录模块】            【+8618618379342】          (账号密码登录 , 操作成功)        {phone:18618379342,password:ewrtgfdsasdf123}
-    ///【登录模块】            【+8618618379342】          (账号密码登录 , 操作失败,原因:账号密码错误)        {phone:18618379342,password:ewrtgfdsasdf123}
-    ///【我的账户模块】            【uid:12345】          (获取订单记录 , 操作成功,)        {"\(network respond info)"}
-    ///【我的账户模块】            【uid:12345】          (获取账户余额 , 操作失败,原因:"\(network error)")        {date: 2020-06-28}
-    public func logContent() -> String {
-        let actionAndResult = "(\(self.messionName), \(self.result.description))"
-        let label = "【\(self.moduleName)】" + "\t" + "【\(self.userTag)】" + "\t" + actionAndResult + "{\(self.detail)}" + "\t"
-        return label
-    }
-    
-}
+
 
