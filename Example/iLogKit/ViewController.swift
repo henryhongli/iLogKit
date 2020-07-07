@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     ///模拟登录成功操作
     @IBAction func loginLog(_ sender: Any) {
-        let log = BaseModel(moduleName: "登录模块", messionName: "账号密码登录", userTag: "18618379342", result: .success, detail: "", logLevel: .lower)
+        let log = iLogBaseModel(moduleName: "登录模块", messionName: "账号密码登录", userTag: "18618379342", result: .success, detail: "", logLevel: .lower)
         log.writeLog()
         
     }
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         let pwd = "aa12345"
         /// 假设网络请求错误
         let error = NSError.init(domain: "hhh", code: 1001, userInfo: ["msg":"账号密码错误"])
-        let log = BaseModel(moduleName: "登录模块",
+        let log = iLogBaseModel(moduleName: "登录模块",
                             messionName: "登录按钮点击",
                             userTag: "18618379342",
                             result: .fail("\(error)"),
@@ -72,12 +72,12 @@ class ViewController: UIViewController {
     /// lower 级别日志, 设置日志采集级别后   可以   操作此处日志是否被采集
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let log = BaseModel(moduleName: "登录模块", messionName: "展示登录页", userTag: "", result: .success, detail: "", logLevel: .lower)
+        let log = iLogBaseModel(moduleName: "登录模块", messionName: "展示登录页", userTag: "", result: .success, detail: "", logLevel: .lower)
         log.writeLog()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        let log = BaseModel(moduleName: "登录模块", messionName: "退出登录页", userTag: "", result: .success, detail: "", logLevel: .lower)
+        let log = iLogBaseModel(moduleName: "登录模块", messionName: "退出登录页", userTag: "", result: .success, detail: "", logLevel: .lower)
         log.writeLog()
     }
     
