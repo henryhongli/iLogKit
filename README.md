@@ -24,7 +24,7 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 ///已集成Logan服务
-pod 'iLogKit', :git => 'https://github.com/henryhongli/iLogKit.git', :tag => '2.0.0'
+pod 'iLogKit', :git => 'https://github.com/henryhongli/iLogKit.git', :tag => '2.4.0'
 
 ///原始工具,未封装版本
 pod 'iLogKit', :git => 'https://github.com/henryhongli/iLogKit.git', :tag => '1.5.0'
@@ -38,7 +38,7 @@ pod 'iLogKit', :git => 'https://github.com/henryhongli/iLogKit.git', :tag => '1.
 
 iLogKit is available under the MIT license. See the LICENSE file for more info.
 
-![类图s](https://raw.githubusercontent.com/henryhongli/iLogKit/master/Example/App日志类图.png)
+//![类图s](https://raw.githubusercontent.com/henryhongli/iLogKit/master/Example/App日志类图.png)
 
 
 ## 一.启动服务
@@ -55,33 +55,38 @@ LoganServer.ifNeedPrint(true)
 ```
 ## 二.实现接口
 ```ruby
-class iLogbaseModule {
-   .....
+struct LogInfo :ILogServer{
+    var moduleName: String
+
+    var messionName: String
+
+    var userTag: String
+
+    var result: iLogMessionResult
+
+    var detail: String
+
+    var logLevel: LocalLogType
+    
 }
-///--------------- 实现转义
-extension iLogbaseModule : ILogServer{
-    ///协议属性, 转换日志VM
-    var iLogVM: ilogViewModel{
-        let vm = ilogViewModel()
-        /// 日志级别
-        vm.logLevel = LocalLogType.lower.rawValue
-        /// 日志内容
-        vm.label = "这是一条操作日志"
-        return vm
-    }
-    ///记录日志
-    public func writeLog() {
-        self.iLogVM.iLog.write()
-    }
+extension ILogServer where Self == LogInfo {
+    
 }
 ```
 ## 三.记录日志
 ```ruby
-let log = iLogbaseModule()
-...
-此处可以根据编辑log,完善日志内容
-...
-log.writeLog()
+let log = LogInfo(moduleName: "登录模块",
+               messionName: "登录按钮点击",
+               userTag: "18618379342",
+               result: .fail("\(error)"),
+               detail: "account:\(phone),pwd:\(pwd)",
+              logLevel: .lower)
+
+ILog.write(log.self)
+
+//或
+ILog.write(1, "label")
+
 ```
 
 ## 四.上传日志
