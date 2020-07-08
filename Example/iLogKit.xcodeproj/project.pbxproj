@@ -17,9 +17,9 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		C39CCEE524A83DC7008AEC90 /* AppLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CCEE424A83DC7008AEC90 /* AppLogHandler.swift */; };
 		C39CCEE724A86C82008AEC90 /* EditLogRecivetype.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CCEE624A86C82008AEC90 /* EditLogRecivetype.swift */; };
-		C39CCEEB24A9D85E008AEC90 /* App日志类图.png in Resources */ = {isa = PBXBuildFile; fileRef = C39CCEEA24A9D85E008AEC90 /* App日志类图.png */; };
 		C39CCEF524AA06FB008AEC90 /* iLogKit_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CCEF424AA06FB008AEC90 /* iLogKit_ExampleTests.swift */; };
 		C39CCF0324AA18EF008AEC90 /* iLogKit_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CCF0224AA18EF008AEC90 /* iLogKit_ExampleUITests.swift */; };
+		C39CCF2D24B563F9008AEC90 /* App日志类图.png in Resources */ = {isa = PBXBuildFile; fileRef = C39CCF2C24B563F9008AEC90 /* App日志类图.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,13 +67,13 @@
 		BF62C34FA40643283D36013B /* Pods-iLogKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLogKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-iLogKit_Tests/Pods-iLogKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C39CCEE424A83DC7008AEC90 /* AppLogHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogHandler.swift; sourceTree = "<group>"; };
 		C39CCEE624A86C82008AEC90 /* EditLogRecivetype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLogRecivetype.swift; sourceTree = "<group>"; };
-		C39CCEEA24A9D85E008AEC90 /* App日志类图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App日志类图.png"; sourceTree = "<group>"; };
 		C39CCEF224AA06FB008AEC90 /* iLogKit_ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLogKit_ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C39CCEF424AA06FB008AEC90 /* iLogKit_ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLogKit_ExampleTests.swift; sourceTree = "<group>"; };
 		C39CCEF624AA06FB008AEC90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C39CCF0024AA18EF008AEC90 /* iLogKit_ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLogKit_ExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C39CCF0224AA18EF008AEC90 /* iLogKit_ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLogKit_ExampleUITests.swift; sourceTree = "<group>"; };
 		C39CCF0424AA18EF008AEC90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C39CCF2C24B563F9008AEC90 /* App日志类图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "App日志类图.png"; sourceTree = "<group>"; };
 		CDD0F9728E70C4D87EED57F5 /* Pods-iLogKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLogKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-iLogKit_Example/Pods-iLogKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +139,7 @@
 		607FACD21AFB9204008FA782 /* Example for iLogKit */ = {
 			isa = PBXGroup;
 			children = (
+				C39CCF2C24B563F9008AEC90 /* App日志类图.png */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				C39CCEE624A86C82008AEC90 /* EditLogRecivetype.swift */,
@@ -182,7 +183,6 @@
 			children = (
 				41941AB6426BE9703FCD3A10 /* iLogKit.podspec */,
 				41E4B3C339D4D74AE4719316 /* README.md */,
-				C39CCEEA24A9D85E008AEC90 /* App日志类图.png */,
 				6CA8906260665CEA9B3EBA6B /* LICENSE */,
 			);
 			name = "Podspec Metadata";
@@ -361,7 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C39CCEEB24A9D85E008AEC90 /* App日志类图.png in Resources */,
+				C39CCF2D24B563F9008AEC90 /* App日志类图.png in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
