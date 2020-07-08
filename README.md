@@ -91,7 +91,7 @@ ILog.write(1, "label")
 
 ## 四.上传日志
 ```ruby
-LoganServer.uploadAllLog{ (state) in
+ILog.uploadAllLog{ (state) in
     print(state ? "日志上传成功":"日志上传失败")
 }
 ```
