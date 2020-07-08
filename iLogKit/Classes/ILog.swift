@@ -23,17 +23,17 @@ public class ILog {
     ///   - uploadUrl: 上传地址
     ///   - ifNeedPrint: 是否需要在控制台实时输出日志内容, 默认false
     public static func startLogan(_ data: [String:String]){
-        let keyData = data["keyData"]!.data(using: .utf8)
-        let ivData = data["ivData"]!.data(using: .utf8)
-
+        guard let keyData = data["keyData"]?.data(using: .utf8),let ivData = data["ivData"]!.data(using: .utf8) else { return print("日志服务启动失败 \(data)") }
+        
         self.loganUploadUrl = data["uploadUrl"]!
         ///最大存储量
         let fileMax: uint_fast64_t = 100 * 1024 * 1024
         //日志有效期,1天
         let maxReversedDate: Int32 = 1
-        loganInit(keyData!, ivData!, fileMax)
+        loganInit(keyData, ivData, fileMax)
         loganSetMaxReversedDate(maxReversedDate)
         loganUseASL(true)
+        print("日志服务已启动")
     }
 
     ///上传日志
@@ -89,12 +89,22 @@ public class ILog {
     
     
     public static func write(_ level: UInt, _ label:String){
-        logan(level, label)
+        if level >= logLevelLimit.rawValue {
+            logan(level, label)
+        }else{
+            print("当前日志收集最低级别为: \(logLevelLimit.rawValue), 此日志被丢弃 : \(label)")
+        }
+        
     }
     public static func write<T:ILogServer>(_ info: T) {
         let actionAndResult = "(\(info.messionName), \(info.result.description))"
         let label = "【\(info.moduleName)】" + "\t" + "【\(info.userTag)】" + "\t" + actionAndResult + "{\(info.detail)}" + "\t"
-        logan(info.logLevel.rawValue, label)
+        if info.logLevel.rawValue >= logLevelLimit.rawValue {
+            logan(info.logLevel.rawValue, label)
+        }else{
+            print("当前日志收集最低级别为: \(logLevelLimit.rawValue), 此日志被丢弃 : \(label)")
+        }
+        
     }
 }
 
