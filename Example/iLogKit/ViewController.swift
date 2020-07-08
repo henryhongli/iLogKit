@@ -36,6 +36,7 @@ class ViewController: UIViewController {
                          logLevel: .lower)
         
         ILog.write(log.self)
+        ILog.write(1, "label")
     }
     ///编辑日志收集级别
     @IBAction func editiLogKit(_ sender: Any) {
