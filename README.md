@@ -38,7 +38,7 @@ pod 'iLogKit', :git => 'https://github.com/henryhongli/iLogKit.git', :tag => '1.
 
 iLogKit is available under the MIT license. See the LICENSE file for more info.
 
-//![类图s](https://raw.githubusercontent.com/henryhongli/iLogKit/master/Example/App日志类图.png)
+![类图s](https://raw.githubusercontent.com/henryhongli/iLogKit/master/Example/iLogKit/App日志类图.png)
 
 
 ## 一.启动服务
