@@ -148,4 +148,46 @@ public enum iLogMessionResult {
     }
 }
 
-
+final class Sentry{
+    private static let `default` = Sentry()
+    var exceptions: String? = ""
+}
+extension Sentry {
+    
+    private static let KeyForDefaults = "Sentry_ExceptionHandler"
+    /// 捕获异常
+    static func stand() {
+        writeIfNeeded()
+        NSSetUncaughtExceptionHandler { (exception) in
+            Sentry.synchronize(before: {
+                var array = [String]()
+                if let reason = exception.reason {
+                    array.append(reason)
+                }
+                array.append(contentsOf: exception.callStackSymbols)
+                UserDefaults.standard.set(array, forKey: Sentry.KeyForDefaults)
+            }, after: nil)
+        }
+    }
+    private static func writeIfNeeded() {
+        if let exception = UserDefaults.standard.object(forKey: Sentry.KeyForDefaults) as? [String] {
+            var exceptions = ""
+            for e in exception {
+                exceptions = exceptions + e + "\n"
+            }
+            Sentry.default.exceptions = exceptions
+            print("崩溃信息: \n\(exceptions)")
+            ILog.write(LocalLogType.error.rawValue, exceptions)
+            synchronize(before: {
+                UserDefaults.standard.removeObject(forKey: Sentry.KeyForDefaults)
+            }, after: nil)
+        }
+    }
+    private static func synchronize(before: () -> (), after: (() -> ())?) {
+        before()
+        UserDefaults.standard.synchronize()
+        if let a = after { a() }
+    }
+    
+    
+}
