@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ///启动日志收集服务
         let dic = ["keyData":"0123456789012345",
                    "ivData":"0123456789012345",
-                   "uploadUrl":"http://192.168.1.189:9999/logan/upload.json",
+                   "uploadUrl":"https://tclogan.jfgame.cloud/logan/upload.json",
                     "ifNeedPrint":"1"]
         ILog.startLogan(dic)
         ///设置收集最低级别
@@ -28,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
+        
+        
+//        let a = [1,2]
+//        print(a[3])
         
         // Override point for customization after application launch.
         return true

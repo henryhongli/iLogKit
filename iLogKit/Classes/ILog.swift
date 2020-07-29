@@ -24,6 +24,7 @@ public class ILog {
     ///   - ifNeedPrint: 是否需要在控制台实时输出日志内容, 默认false
     public static func startLogan(_ data: [String:String]){
         guard let keyData = data["keyData"]?.data(using: .utf8),let ivData = data["ivData"]!.data(using: .utf8) else { return print("日志服务启动失败 \(data)") }
+        /// 捕获异常
         
         self.loganUploadUrl = data["uploadUrl"]!
         ///最大存储量
@@ -33,6 +34,7 @@ public class ILog {
         loganInit(keyData, ivData, fileMax)
         loganSetMaxReversedDate(maxReversedDate)
         loganUseASL(true)
+        Sentry.stand()
         print("日志服务已启动")
     }
 
@@ -148,7 +150,7 @@ public enum iLogMessionResult {
     }
 }
 
-final class Sentry{
+public class Sentry{
     private static let `default` = Sentry()
     var exceptions: String? = ""
 }
@@ -188,6 +190,9 @@ extension Sentry {
         UserDefaults.standard.synchronize()
         if let a = after { a() }
     }
-    
+    public static func doNotTouchTheButton() {
+        let exception = NSException(name: NSExceptionName(rawValue: "别按这个按钮！"), reason: "你按了这个按钮", userInfo: nil)
+        exception.raise()
+    }
     
 }
