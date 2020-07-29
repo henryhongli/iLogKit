@@ -25,6 +25,8 @@ it, simply add the following line to your Podfile:
 ```ruby
 ///已集成Logan服务
 pod 'iLogKit', :git => 'https://github.com/henryhongli/iLogKit.git', :tag => '2.4.0'
+pod 'iLogKit', :git => 'http://hongli@114.242.31.175:8090/ios-common/common-sdk.git', :tag => '2.4.0'
+
 
 ///原始工具,未封装版本
 pod 'iLogKit', :git => 'https://github.com/henryhongli/iLogKit.git', :tag => '1.5.0'
