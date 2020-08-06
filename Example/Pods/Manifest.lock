@@ -1,5 +1,5 @@
 PODS:
-  - iLogKit (2.4.1):
+  - iLogKit (2.4.2):
     - Logan
   - Logan (1.2.7):
     - Logan/mbedtls (= 1.2.7)
@@ -17,7 +17,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  iLogKit: 3887fb3cfc2df3a702c556133deaf4bdbcb7873d
+  iLogKit: 42386f8229caf6198cf1c06982c408c2c4663c27
   Logan: d7e508f88d596b186e9cdcc0cf35b45c89bbc22f
 
 PODFILE CHECKSUM: 755362ba5369758af93e868e44feecad38167887
