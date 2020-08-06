@@ -1,0 +1,27 @@
+{
+  "name": "BasicKit",
+  "version": "1.0.1",
+  "summary": "A short description of BasicKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Tyrant/BasicKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tyrant": "appledevelop@gichain.net"
+  },
+  "source": {
+    "git": "git@114.242.31.175:wangzhichen/BasicKit.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "BasicKit/**/*",
+  "dependencies": {
+    "XKit": [
+
+    ]
+  }
+}

@@ -27,12 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ILog.ifNeedPrint(true)
         
         
-        
-        
-        
-//        let a = [1,2]
-//        print(a[3])
-        
         // Override point for customization after application launch.
         return true
     }

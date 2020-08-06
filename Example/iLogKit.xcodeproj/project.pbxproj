@@ -15,6 +15,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		C3251E5E24DC3437004FD75D /* HHHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3251E5D24DC3437004FD75D /* HHHViewController.m */; };
 		C39CCEE524A83DC7008AEC90 /* AppLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CCEE424A83DC7008AEC90 /* AppLogHandler.swift */; };
 		C39CCEE724A86C82008AEC90 /* EditLogRecivetype.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CCEE624A86C82008AEC90 /* EditLogRecivetype.swift */; };
 		C39CCEF524AA06FB008AEC90 /* iLogKit_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39CCEF424AA06FB008AEC90 /* iLogKit_ExampleTests.swift */; };
@@ -65,6 +66,9 @@
 		909977CC4F28F1271C7ED8D6 /* Pods_iLogKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLogKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9685B2B8C4657BA33466FE26 /* Pods-iLogKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLogKit_Example.release.xcconfig"; path = "Target Support Files/Pods-iLogKit_Example/Pods-iLogKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BF62C34FA40643283D36013B /* Pods-iLogKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLogKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-iLogKit_Tests/Pods-iLogKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		C3251E5B24DC3437004FD75D /* iLogKit_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iLogKit_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		C3251E5C24DC3437004FD75D /* HHHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHHViewController.h; sourceTree = "<group>"; };
+		C3251E5D24DC3437004FD75D /* HHHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHHViewController.m; sourceTree = "<group>"; };
 		C39CCEE424A83DC7008AEC90 /* AppLogHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogHandler.swift; sourceTree = "<group>"; };
 		C39CCEE624A86C82008AEC90 /* EditLogRecivetype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLogRecivetype.swift; sourceTree = "<group>"; };
 		C39CCEF224AA06FB008AEC90 /* iLogKit_ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLogKit_ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +152,9 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				C3251E5C24DC3437004FD75D /* HHHViewController.h */,
+				C3251E5D24DC3437004FD75D /* HHHViewController.m */,
+				C3251E5B24DC3437004FD75D /* iLogKit_Example-Bridging-Header.h */,
 			);
 			name = "Example for iLogKit";
 			path = iLogKit;
@@ -315,7 +322,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1150;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -465,6 +472,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				C39CCEE524A83DC7008AEC90 /* AppLogHandler.swift in Sources */,
+				C3251E5E24DC3437004FD75D /* HHHViewController.m in Sources */,
 				C39CCEE724A86C82008AEC90 /* EditLogRecivetype.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
@@ -638,11 +646,14 @@
 			baseConfigurationReference = CDD0F9728E70C4D87EED57F5 /* Pods-iLogKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = iLogKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iLogKit/iLogKit_Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -653,11 +664,13 @@
 			baseConfigurationReference = 9685B2B8C4657BA33466FE26 /* Pods-iLogKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = iLogKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iLogKit/iLogKit_Example-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
