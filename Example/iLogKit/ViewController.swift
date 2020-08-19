@@ -8,6 +8,9 @@
 
 import UIKit
 import iLogKit
+
+
+
 class ViewController: UIViewController {
 
     
@@ -17,8 +20,8 @@ class ViewController: UIViewController {
     @IBAction func loginLog(_ sender: Any) {
         let log = LogInfo(moduleName: "", messionName: "", userTag: "", result: .success, detail: "", logLevel: .lower)
         
-        ILog.write(log.self)
-        Sentry.doNotTouchTheButton()
+        ILog.write(log)
+        UncaughtException.doNotTouchTheButton()
     }
     ///模拟登录请求报错日志收集
     @IBAction func loginFailLog(_ sender: Any) {
@@ -37,6 +40,7 @@ class ViewController: UIViewController {
         
         ILog.write(log.self)
         ILog.write(1, "label")
+        
     }
     ///编辑日志收集级别
     @IBAction func editiLogKit(_ sender: Any) {
@@ -100,6 +104,8 @@ class ViewController: UIViewController {
     }
 
 }
+
+
 
 
 

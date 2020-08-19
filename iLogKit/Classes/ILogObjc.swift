@@ -16,7 +16,7 @@ import UIKit
     ///   - uploadUrl: 上传地址
     ///   - ifNeedPrint: 是否需要在控制台实时输出日志内容, 默认false
     public static func startLogan(_ data: [String:String]){
-        ILog.startLogan(data)
+//        ILog.startLogan(data)
     }
     ///存储日志
     @objc public class func write(level: UInt, label: String){
