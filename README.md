@@ -1,6 +1,6 @@
 # iLogKit
 
-[![CI Status](https://img.shields.io/travis/261930323@qq.com/iLogKit.svg?style=flat)](https://travis-ci.org/261930323@qq.com/iLogKit)
+[![build status](http://114.242.31.175:8090/ios-common/common-sdk/badges/master/build.svg)](http://114.242.31.175:8090/ios-common/common-sdk/commits/master)
 [![Version](https://img.shields.io/cocoapods/v/iLogKit.svg?style=flat)](https://cocoapods.org/pods/iLogKit)
 [![License](https://img.shields.io/cocoapods/l/iLogKit.svg?style=flat)](https://cocoapods.org/pods/iLogKit)
 [![Platform](https://img.shields.io/cocoapods/p/iLogKit.svg?style=flat)](https://cocoapods.org/pods/iLogKit)

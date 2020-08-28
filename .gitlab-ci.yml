@@ -1,0 +1,5 @@
+Testing:
+ stage: test
+ script:
+ - xcodebuild clean
+ - xcodebuild build
