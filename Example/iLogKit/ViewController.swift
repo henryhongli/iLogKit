@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         let log = LogInfo(moduleName: "", messionName: "", userTag: "", result: .success, detail: "", logLevel: .lower)
         
         ILog.write(log.self)
-        Sentry.doNotTouchTheButton()
+
     }
     ///模拟登录请求报错日志收集
     @IBAction func loginFailLog(_ sender: Any) {
@@ -45,6 +45,9 @@ class ViewController: UIViewController {
     
     
     
+    @IBAction func crashlog(_ sender: Any) {
+        Sentry.doNotTouchTheButton()
+    }
     
     var date: String{
         let now = Date()
