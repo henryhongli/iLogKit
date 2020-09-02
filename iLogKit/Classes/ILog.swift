@@ -7,108 +7,79 @@
 //
 
 import Foundation
-import Logan
+//import Logan
+
+public protocol BasicConfig {
+    var url: String { get }
+    
+    var logInConsole: Bool { get }
+    
+    var level: LocalLogType { set get }
+}
+
+
+protocol Logging {
+    
+    @discardableResult
+    func write(level: UInt, info: String) -> Bool
+    
+    func uploadAllLog(complete:((_ state:Bool)->())?)
+}
 
 public class ILog {
     
-    ///日志筛选等级, 默认不筛选,全量上传
-    fileprivate static var logLevelLimit : LocalLogType = .lower
-    ///日志上传地址
-    private static var loganUploadUrl : String = "http://192.168.1.189:9999/logan/upload.json"
     
-    /// 启动日志服务
-    /// - Parameters:
-    ///   - keyData: key
-    ///   - ivData: iv
-    ///   - uploadUrl: 上传地址
-    ///   - ifNeedPrint: 是否需要在控制台实时输出日志内容, 默认false
-    public static func startLogan(_ data: [String:String]){
-        guard let keyData = data["keyData"]?.data(using: .utf8),let ivData = data["ivData"]!.data(using: .utf8) else { return print("日志服务启动失败 \(data)") }
-        /// 捕获异常
+    public static let `default` = ILog()
+    
+    private var config: BasicConfig = LogonConfig.default
+    
+    ///日志筛选等级, 默认不筛选,全量上传
+    fileprivate var logLevelLimit : LocalLogType = .lower
+    
+    public static func start(data : LogonConfig) {
         
-        self.loganUploadUrl = data["uploadUrl"]!
-        ///最大存储量
-        let fileMax: uint_fast64_t = 100 * 1024 * 1024
-        //日志有效期,1天
-        let maxReversedDate: Int32 = 1
-        loganInit(keyData, ivData, fileMax)
-        loganSetMaxReversedDate(maxReversedDate)
-        loganUseASL(true)
-        Sentry.stand()
-        print("日志服务已启动")
+        ILog.default.config = data
+        
+        ILog.default.log = LogonServer(config: data)
+        
+        UncaughtException.sentry()
     }
+    
+    public func iLogLimit(level: LocalLogType) {
+        var c = config
+        c.level = level
+        config = c
+    }
+    
+    static func underLevel(level: LocalLogType) -> Bool {
+        return level.rawValue >= ILog.default.config.level.rawValue
+    }
+    
+    fileprivate var log: Logging?
 
     ///上传日志
     public static func uploadAllLog(complete:((_ state:Bool)->())?){
-        
-        if let info = Bundle.main.infoDictionary {
-            // 获取App的名称
-            let appId : String = info["CFBundleName"] as! String
-            let sysName = UIDevice.current.systemName //获取系统名称 例如：iPhone OS
-            let sysVersion = UIDevice.current.systemVersion //获取系统版本 例如：9.2
-            // 设备名称以及系统
-            let device = sysName + sysVersion
-            let deviceUUID = UIDevice.current.identifierForVendor?.uuid  //获取设备唯一标识符 例如：FBF2306E-A0D8-4F4B-BDED-9333B627D3E6
-            ///设备唯一标识
-            let unionIdStr = deviceUUID.debugDescription
-            ///日志时间
-            let now = Date()
-            let df = DateFormatter()
-            df.dateFormat = "yyyy-MM-dd"
-            let date = df.string(from: now)
-            loganUpload(loganUploadUrl, date, appId, unionIdStr, device) { (data, resp, error) in
-                if error != nil{
-                    print("upload error")
-                    print(error ?? "unknow error of upload log")
-                    complete?(false)
-                }else{
-                    ///上传成功
-                    if let res = resp {
-                        print("upload succeed")
-                        print(res)
-                    }
-                    complete?(false)
-                    ///上传成功清空所有日志
-                    loganClearAllLogs()
-                }
-            }
-        }else{
-            complete?(false)
-            print("获取本地InfoPlist文件失败")
-        }
-        
-        
-    }
-    
-    /// 设置日志收集等级, 0 全量收集, 1 只收集除 lower之外更高级的, 4 或大于4 的值, 不收集
-    public static func iLogLimit(_ type: LocalLogType){
-        self.logLevelLimit = type
-    }
-    /// 设置是否需要在控制台打印日志
-    public static func ifNeedPrint(_ ifNeed: Bool){
-        loganUseASL(ifNeed)
+        ILog.default.log?.uploadAllLog(complete: complete)
     }
     
     
-    public static func write(_ level: UInt, _ label:String){
-        if level >= logLevelLimit.rawValue {
-            logan(level, label)
-        }else{
-            print("当前日志收集最低级别为: \(logLevelLimit.rawValue), 此日志被丢弃 : \(label)")
-        }
-        
+    public static func write(_ level: UInt, _ info: String) {
+        ILog.default.log?.write(level: level, info: info)
     }
+    
     public static func write<T:ILogServer>(_ info: T) {
         let actionAndResult = "(\(info.messionName), \(info.result.description))"
         let label = "【\(info.moduleName)】" + "\t" + "【\(info.userTag)】" + "\t" + actionAndResult + "{\(info.detail)}" + "\t"
-        if info.logLevel.rawValue >= logLevelLimit.rawValue {
-            logan(info.logLevel.rawValue, label)
+        if underLevel(level: info.logLevel) {
+            ILog.write(info.logLevel.rawValue, label)
         }else{
-            print("当前日志收集最低级别为: \(logLevelLimit.rawValue), 此日志被丢弃 : \(label)")
+            print("当前日志收集最低级别为: \(ILog.default.config.level.rawValue), 此日志被丢弃 : \(label)")
         }
         
     }
 }
+
+
 
 
 ///日志等级
@@ -137,7 +108,10 @@ public protocol ILogServer {
     var detail :String{get set}
     ///日志等级
     var logLevel : LocalLogType{get set}
+    
 }
+
+
 ///操作结果枚举
 public enum iLogMessionResult {
     case success
@@ -150,49 +124,3 @@ public enum iLogMessionResult {
     }
 }
 
-public class Sentry{
-    private static let `default` = Sentry()
-    var exceptions: String? = ""
-}
-extension Sentry {
-    
-    private static let KeyForDefaults = "Sentry_ExceptionHandler"
-    /// 捕获异常
-    static func stand() {
-        writeIfNeeded()
-        NSSetUncaughtExceptionHandler { (exception) in
-            Sentry.synchronize(before: {
-                var array = [String]()
-                if let reason = exception.reason {
-                    array.append(reason)
-                }
-                array.append(contentsOf: exception.callStackSymbols)
-                UserDefaults.standard.set(array, forKey: Sentry.KeyForDefaults)
-            }, after: nil)
-        }
-    }
-    private static func writeIfNeeded() {
-        if let exception = UserDefaults.standard.object(forKey: Sentry.KeyForDefaults) as? [String] {
-            var exceptions = ""
-            for e in exception {
-                exceptions = exceptions + e + "\n"
-            }
-            Sentry.default.exceptions = exceptions
-            print("崩溃信息: \n\(exceptions)")
-            ILog.write(LocalLogType.error.rawValue, exceptions)
-            synchronize(before: {
-                UserDefaults.standard.removeObject(forKey: Sentry.KeyForDefaults)
-            }, after: nil)
-        }
-    }
-    private static func synchronize(before: () -> (), after: (() -> ())?) {
-        before()
-        UserDefaults.standard.synchronize()
-        if let a = after { a() }
-    }
-    public static func doNotTouchTheButton() {
-        let exception = NSException(name: NSExceptionName(rawValue: "别按这个按钮！"), reason: "你按了这个按钮", userInfo: nil)
-        exception.raise()
-    }
-    
-}

@@ -1,0 +1,7 @@
+Testing:
+ stage: test
+ tags:
+ - CI1
+ script:
+ - xcodebuild clean
+ - xcodebuild build

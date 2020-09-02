@@ -16,15 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         ///启动日志收集服务
-        let dic = ["keyData":"0123456789012345",
-                   "ivData":"0123456789012345",
-                   "uploadUrl":"https://tclogan.jfgame.cloud/logan/upload.json",
-                    "ifNeedPrint":"1"]
-        ILog.startLogan(dic)
-        ///设置收集最低级别
-        ILog.iLogLimit(.lower)
-        ///设置是否在控制台打印
-        ILog.ifNeedPrint(true)
+//        let dic = ["keyData":"0123456789012345",
+//                   "ivData":"0123456789012345",
+//                   "uploadUrl":"https://tclogan.jfgame.cloud/logan/upload.json",
+//                    "ifNeedPrint":"1",
+//                    "fasdfa":"fasdfa"]
+//        ILog.start(dic)
+//        ///设置收集最低级别
+//        ILog.iLogLimit(.lower)
+//        ///设置是否在控制台打印
+//        ILog.ifNeedPrint(true)
         
         
         // Override point for customization after application launch.
