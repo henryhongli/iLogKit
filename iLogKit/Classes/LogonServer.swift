@@ -8,7 +8,6 @@
 import Foundation
 import Logan
 
-
 public struct LogonConfig: BasicConfig {
     
     public var level: LocalLogType
@@ -32,12 +31,9 @@ public struct LogonConfig: BasicConfig {
 
 class LogonServer: Logging {
     
-    
-    
-    func uploadAllLog(complete: ((Bool) -> ())?) {
-        if let info = Bundle.main.infoDictionary {
-            // 获取App的名称
-            let appId : String = info["CFBundleName"] as! String
+    func uploadAllLog(complete: ((Bool) -> Void)? ) {
+        if let info = Bundle.main.infoDictionary, let appId: String = info["CFBundleName"] as? String {
+            
             let sysName = UIDevice.current.systemName //获取系统名称 例如：iPhone OS
             let sysVersion = UIDevice.current.systemVersion //获取系统版本 例如：9.2
             // 设备名称以及系统
@@ -50,12 +46,12 @@ class LogonServer: Logging {
             let df = DateFormatter()
             df.dateFormat = "yyyy-MM-dd"
             let date = df.string(from: now)
-            loganUpload(config.url, date, appId, unionIdStr, device) { (data, resp, error) in
-                if error != nil{
+            loganUpload(config.url, date, appId, unionIdStr, device) { ( _, resp, error ) in
+                if error != nil {
                     print("upload error")
                     print(error ?? "unknow error of upload log")
                     complete?(false)
-                }else{
+                } else {
                     ///上传成功
                     if let res = resp {
                         print("upload succeed")
@@ -66,17 +62,15 @@ class LogonServer: Logging {
                     loganClearAllLogs()
                 }
             }
-        }else{
+        } else {
             complete?(false)
             print("获取本地InfoPlist文件失败")
         }
     }
     
-    
     //    static let `default` = LogonServer()
     
     let config: LogonConfig
-    
     
     init(config: LogonConfig) {
         self.config = config
@@ -93,11 +87,9 @@ class LogonServer: Logging {
         loganInit(config.keyData, config.ivData, fileMax)
         loganSetMaxReversedDate(maxReversedDate)
 
-        
         loganUseASL(config.logInConsole)
         
     }
-    
     
     @discardableResult
     func write(level: UInt, info: String) -> Bool {
