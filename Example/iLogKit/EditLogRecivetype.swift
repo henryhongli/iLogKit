@@ -21,21 +21,21 @@ class EditLogRecivetype: UIViewController {
     }
     
 
-    @objc func selectedAllDroped(){
+    @objc func selectedAllDroped() {
         /// 设置为error级别, 或者任意大于 4 的 整数
         ILog.default.iLogLimit(level: .error)
-        UserDefaults.standard.set(iLogReciveType.allDroped.description, forKey: iLogReciveTypeKey)
+        UserDefaults.standard.set(ILogReciveType.allDroped.description, forKey: iLogReciveTypeKey)
         self.dismiss(animated: true, completion: nil)
     }
-    @objc func selectedImportant(){
+    @objc func selectedImportant() {
         /// 大于 lower 级别的日志将被收集
         ILog.default.iLogLimit(level: .lower)
-        UserDefaults.standard.set(iLogReciveType.importantInfo.description, forKey: iLogReciveTypeKey)
+        UserDefaults.standard.set(ILogReciveType.importantInfo.description, forKey: iLogReciveTypeKey)
         self.dismiss(animated: true, completion: nil)
     }
-    @objc func selectedAll(){
+    @objc func selectedAll() {
         ILog.default.iLogLimit(level: .lower)
-        UserDefaults.standard.set(iLogReciveType.all.description, forKey: iLogReciveTypeKey)
+        UserDefaults.standard.set(ILogReciveType.all.description, forKey: iLogReciveTypeKey)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -44,19 +44,19 @@ class EditLogRecivetype: UIViewController {
     
     
     
-    private func configSubviews(){
+    private func configSubviews() {
         firstBtn.frame = CGRect(x: 50, y: 100, width: 250, height: 30)
-        firstBtn.setTitle(iLogReciveType.allDroped.description, for: .normal)
+        firstBtn.setTitle(ILogReciveType.allDroped.description, for: .normal)
         firstBtn.setTitleColor(.black, for: .normal)
         firstBtn.setTitleColor(.red, for: .selected)
         
         secondBtn.frame = CGRect(x: 50, y: 180, width: 250, height: 30)
-        secondBtn.setTitle(iLogReciveType.importantInfo.description, for: .normal)
+        secondBtn.setTitle(ILogReciveType.importantInfo.description, for: .normal)
         secondBtn.setTitleColor(.black, for: .normal)
         secondBtn.setTitleColor(.red, for: .selected)
         
         thirdBtn.frame = CGRect(x: 50, y: 260, width: 250, height: 30)
-        thirdBtn.setTitle(iLogReciveType.all.description, for: .normal)
+        thirdBtn.setTitle(ILogReciveType.all.description, for: .normal)
         thirdBtn.setTitleColor(.black, for: .normal)
         thirdBtn.setTitleColor(.red, for: .selected)
         view.addSubview(firstBtn)
@@ -64,9 +64,9 @@ class EditLogRecivetype: UIViewController {
         view.addSubview(thirdBtn)
         
         
-        firstBtn.isSelected = iLog.default.type == .allDroped ? true:false
-        secondBtn.isSelected = iLog.default.type == .importantInfo ? true:false
-        thirdBtn.isSelected = iLog.default.type == .all ? true:false
+        firstBtn.isSelected = ILogTool.default.type == .allDroped ? true:false
+        secondBtn.isSelected = ILogTool.default.type == .importantInfo ? true:false
+        thirdBtn.isSelected = ILogTool.default.type == .all ? true:false
         
         
         firstBtn.addTarget(self, action: #selector(selectedAllDroped), for: .touchUpInside)
@@ -79,7 +79,7 @@ class EditLogRecivetype: UIViewController {
 /// 日志收集管理 本地设置
 let iLogReciveTypeKey = "iLogReciveType"
 ///日志收集管理
-enum iLogReciveType {
+enum ILogReciveType {
     
     case allDroped   ///不收集,全部放弃
     case importantInfo /// 只收集重要的, 级别 大于 1的
@@ -93,17 +93,17 @@ enum iLogReciveType {
         }
     }
 }
-class iLog {
-    var type : iLogReciveType {
-        let result1 = UserDefaults.standard.string(forKey: iLogReciveTypeKey) ?? iLogReciveType.all.description
-        if result1 == iLogReciveType.all.description {
+class ILogTool {
+    var type : ILogReciveType {
+        let result1 = UserDefaults.standard.string(forKey: iLogReciveTypeKey) ?? ILogReciveType.all.description
+        if result1 == ILogReciveType.all.description {
             return .all
         }
-        if result1 == iLogReciveType.importantInfo.description {
+        if result1 == ILogReciveType.importantInfo.description {
             return .importantInfo
         }
         return .allDroped
     }
-    static let `default` = iLog()
+    static let `default` = ILogTool()
     
 }

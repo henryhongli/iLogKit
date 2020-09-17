@@ -14,29 +14,26 @@ public protocol BasicConfig {
     
     var logInConsole: Bool { get }
     
-    var level: LocalLogType { set get }
+    var level: LocalLogType { get set  }
 }
-
 
 protocol Logging {
     
     @discardableResult
     func write(level: UInt, info: String) -> Bool
     
-    func uploadAllLog(complete:((_ state:Bool)->())?)
+    func uploadAllLog(complete:((_ state: Bool) -> Void)? )
 }
 
 public class ILog {
-    
-    
     public static let `default` = ILog()
     
     private var config: BasicConfig = LogonConfig.default
     
     ///日志筛选等级, 默认不筛选,全量上传
-    fileprivate var logLevelLimit : LocalLogType = .lower
+    fileprivate var logLevelLimit: LocalLogType = .lower
     
-    public static func start(data : LogonConfig) {
+    public static func start (data: LogonConfig) {
         
         ILog.default.config = data
         
@@ -58,30 +55,24 @@ public class ILog {
     fileprivate var log: Logging?
 
     ///上传日志
-    public static func uploadAllLog(complete:((_ state:Bool)->())?){
+    public static func uploadAllLog(complete:((_ state: Bool) -> Void )? ) {
         ILog.default.log?.uploadAllLog(complete: complete)
     }
-    
     
     public static func write(_ level: UInt, _ info: String) {
         ILog.default.log?.write(level: level, info: info)
     }
     
-    public static func write<T:ILogServer>(_ info: T) {
+    public static func write <T: ILogServer>(_ info: T) {
         let actionAndResult = "(\(info.messionName), \(info.result.description))"
         let label = "【\(info.moduleName)】" + "\t" + "【\(info.userTag)】" + "\t" + actionAndResult + "{\(info.detail)}" + "\t"
         if underLevel(level: info.logLevel) {
             ILog.write(info.logLevel.rawValue, label)
-        }else{
+        } else {
             print("当前日志收集最低级别为: \(ILog.default.config.level.rawValue), 此日志被丢弃 : \(label)")
         }
-        
     }
 }
-
-
-
-
 ///日志等级
 /*
  1->lower: (页面展示, 交互点击事件)
@@ -97,30 +88,27 @@ public enum LocalLogType: UInt {
 public protocol ILogServer {
 
     ///模块名称  如 : 登录模块
-    var moduleName:String{get set}
+    var moduleName: String { get set }
     ///业务点名称 如: 账号密码登录
-    var messionName:String{get set}
+    var messionName: String { get set }
     ///用户标识, 例: 手机号, userID等
-    var userTag:String{get}
+    var userTag: String { get }
     ///操作结果
-    var result:iLogMessionResult{get set}
+    var result: iLogMessionResult { get set }
     ///详情信息
-    var detail :String{get set}
+    var detail: String { get set }
     ///日志等级
-    var logLevel : LocalLogType{get set}
+    var logLevel: LocalLogType { get set }
     
 }
-
-
 ///操作结果枚举
 public enum iLogMessionResult {
     case success
     case fail(String)
-    var description : String{
+    var description: String {
         switch self {
         case .success: return "操作成功"
         case .fail(let reason): return "操作失败, 原因:\(reason)"
         }
     }
 }
-

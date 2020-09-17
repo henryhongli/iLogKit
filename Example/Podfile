@@ -1,8 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
+
+
 target 'iLogKit_Example' do
   pod 'iLogKit', :path => '../'
+  pod 'SwiftLint'
 #  pod 'BasicKit', :git => 'http://114.242.31.175:8090/wangzhichen/iOS_GINetworking'
 #  pod 'BasicKit', :git => 'git@114.242.31.175:wangzhichen/BasicKit.git'
   target 'iLogKit_Tests' do

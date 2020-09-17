@@ -16,15 +16,15 @@ import iLogKit
  
  */
 
-enum AppModules : String {
+enum AppModules: String {
     case login = "登录模块"
 }
 /// ------   登录模块 业务点
-enum messionOfLogin : String{
+enum MessionOfLogin: String {
     ///important
-    case normaLogin =  "账号密码登录"
+    case normaLogin = "账号密码登录"
     case forgotPW = "找回密码"
-    var level : UInt{
+    var level: UInt {
         switch self {
         case .normaLogin: return LocalLogType.normal.rawValue
         case .forgotPW: return  LocalLogType.normal.rawValue
@@ -34,7 +34,7 @@ enum messionOfLogin : String{
 
 
 
-struct LogInfo :ILogServer{
+struct LogInfo: ILogServer {
     var moduleName: String
 
     var messionName: String

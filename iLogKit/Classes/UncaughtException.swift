@@ -5,7 +5,6 @@
 //  Created by Tyrant on 2020/8/17.
 //
 
-
 public class UncaughtException {
     
     private static let `default` = UncaughtException()
@@ -31,13 +30,11 @@ extension UncaughtException {
         }
     }
     
-    
-    
     private static func writeIfNeeded() {
         if let exception = UserDefaults.standard.object(forKey: UncaughtException.KeyForDefaults) as? [String] {
             var exceptions = ""
             for e in exception {
-                exceptions = exceptions + e + "\n"
+                exceptions += e + "\n"
             }
             UncaughtException.default.exceptions = exceptions
 
@@ -48,19 +45,15 @@ extension UncaughtException {
         }
     }
     
-    
-    
-    private static func synchronize(before: () -> (), after: (() -> ())?) {
+    private static func synchronize(before: () -> Void, after: (() -> Void)?) {
         before()
         UserDefaults.standard.synchronize()
         if let a = after { a() }
     }
     
-    
     public static func doNotTouchTheButton() {
         let exception = NSException(name: NSExceptionName(rawValue: "别按这个按钮！"), reason: "你按了这个按钮", userInfo: nil)
         exception.raise()
     }
-    
     
 }

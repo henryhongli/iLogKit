@@ -4,13 +4,16 @@ PODS:
   - Logan (1.2.7):
     - Logan/mbedtls (= 1.2.7)
   - Logan/mbedtls (1.2.7)
+  - SwiftLint (0.39.2)
 
 DEPENDENCIES:
   - iLogKit (from `../`)
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Logan
+    - SwiftLint
 
 EXTERNAL SOURCES:
   iLogKit:
@@ -19,7 +22,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   iLogKit: 42386f8229caf6198cf1c06982c408c2c4663c27
   Logan: d7e508f88d596b186e9cdcc0cf35b45c89bbc22f
+  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 755362ba5369758af93e868e44feecad38167887
+PODFILE CHECKSUM: 1213b36d4a6df4d222a1c08ccb0d62da05f66cd6
 
 COCOAPODS: 1.9.1
